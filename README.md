@@ -10,7 +10,7 @@ Treat this documentation like any code repository. If you have a minor addition 
 
 1. [Fork this repo][spacialdb-wiki]
 
-2. Build a local copy:
+2. Build a local copy by doing the following in the console:
 ```console
   git clone git://github.com/spacialdb/spacialdb-wiki.git
   cd spacialdb-wiki
@@ -30,8 +30,9 @@ Treat this documentation like any code repository. If you have a minor addition 
 4. Make your changes
 
 5. Run the specs and fix any formatting issues
-
-        rake spec
+```console
+  rake spec
+```
 
 6. Commit changes to your branch
 
