@@ -1,0 +1,8 @@
+_site
+.DS_Store
+*.rbc
+*.tmproj
+*~
+*.swp
+Gemfile.lock
+
