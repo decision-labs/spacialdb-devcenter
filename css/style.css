@@ -167,19 +167,50 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 /**
  * Primary styles
  *
- * Author: 
+ * Author: Kashif Rasul
  */
 
+#container { background: #fff; min-width: 1000px; width: 100%; padding-bottom: 30px; }
+#container header { width: 1000px; height: 89px; background: url(../images/bg_header.png) bottom no-repeat; margin: 0 auto; position: relative; margin-bottom: 30px; }
+#container header h1 { position: absolute; top: 10px; left:20px; }
+#container header nav { position: absolute; top: 34px; right: 186px; height: 55px; border-right: 1px solid #efefef; border-left: 1px solid #c5c5c5; }
+#container header nav > ul { display: inline; padding: 0; margin: 0; }
+#container header nav > ul > li { display: inline; }
+#container header nav > ul > li > a { display: block; float: left; text-decoration: none; width: 103px; padding: 20px 0 19px; text-align: center; border-left: 1px solid #efefef; border-right: 1px solid #c5c5c5; color: #929292; text-shadow: #ffffff 1px 1px 1px; }
+#container header nav > ul > li > a:hover { background: rgb(239, 239, 239); /* The Fallback */ background: rgba(255, 255, 255, 0.3); }
+
+#container header .search { width: 153px; height: 20px; background: #fff; position: absolute; right: 15px; top: 49px; padding: 2px 0 1px 5px; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; border: 1px solid #d0d0d0;  }
+#container header .search input[type=text] { width: 120px; border: none; }
+#container header .search input[type=text]:focus { outline: 0 none; }
+
+#container #main { width: 1000px; margin: 0 auto; }
+
+#container #main nav { width: 190px; float: left; margin-right: 15px; }
+#container #main nav ul li a { font-weight: bold; color: #595c61; padding: 10px 10px 10px 25px; border-bottom: 1px solid #f4f4f4; display: block; text-decoration: none; }
+#container #main nav ul li:last-child a { border: none; }
 
 
+#container #main nav#sidebar li {
+  list-style-image: url("../images/arrow-spacer.png"); padding: 5px 5px; border-bottom: 1px solid #f4f4f4; margin-left: 20px;
+}
+#container #main nav#sidebar li.collapsed {
+  list-style-image: url("../images/collapsed-arrow.png");
+}
+#container #main nav#sidebar li.expanded {
+  list-style-image: url("../images/expanded-arrow.png");
+}
+#container #main nav#sidebar ul li a { font-weight: bold; color: #595c61; padding: 0; border: none; display: inline; text-decoration: none; }
+#container #main nav#sidebar ul li ul li a { font-weight: normal; }
 
 
-
-
-
-
-
-
+#container #main article { width: 795px; float: left; }
+#container #main article hgroup { padding-bottom: 20px; }
+#container #main article hgroup h1 { float: left; font-size: 30px; font-weight: normal; }
+#container #main article hgroup h3 { float: right; margin: 50px 15px 0 0; }
+#container #main article h2 { font-size: 22px; line-height: 24px; color: #404348; padding: 20px 0 5px; font-weight: normal; }
+#container #main article p { font-size: 12px; line-height: 18px; color: #7e7e7e; padding: 6px 0; }
+#container #main article ul { margin-bottom: 20px; }
+#container #main article li { font-size: 12px; line-height: 18px; color: #7e7e7e; }
 
 
 
