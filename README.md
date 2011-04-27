@@ -11,19 +11,21 @@ Treat this documentation like any code repository. If you have a minor addition 
 1. [Fork this repo][spacialdb-wiki]
 
 2. Build a local copy:
-
-        git clone git://github.com/spacialdb/spacialdb-wiki.git
-        cd spacialdb-wiki
-        gem install bundler
-        bundle install
-        gollum-site generate        # Will generate the files
-        gollum-site serve           # Will start the gollum-site server
-        gollum-site serve --watch   # Will start the gollum-site server and will 
-                                    # regenerate the site when changes are made
+```console
+  git clone git://github.com/spacialdb/spacialdb-wiki.git
+  cd spacialdb-wiki
+  gem install bundler
+  bundle install
+  gollum-site generate        # Will generate the files
+  gollum-site serve           # Will start the gollum-site server
+  gollum-site serve --watch   # Will start the gollum-site server and will 
+                              # regenerate the site when changes are made
+```
 
 3. Create a new branch:
-
-        git checkout -b <branch-name>
+```console
+  git checkout -b <branch-name>
+```
 
 4. Make your changes
 
