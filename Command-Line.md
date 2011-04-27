@@ -2,4 +2,4 @@ The `spacialdb` is the interface to the SpacialDB API and includes support for t
 
 Articles
 --------
-[CLI Usage]
+[[CLI Usage]]
