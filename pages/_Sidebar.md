@@ -1,3 +1,3 @@
 * [[Dev Center|Home]]
-* [[Reference]]
+* Reference
   * [[Command Line]]
