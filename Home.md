@@ -1,0 +1,1 @@
+Initial SpacialDB Wiki which contains all the information one would need.
