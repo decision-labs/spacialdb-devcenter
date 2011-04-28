@@ -35,14 +35,15 @@
 </head>
 
 <body>
-
+  <a href="http://github.com/spacialdb/spacialdb-wiki"><img style="z-index: 1000; position: absolute; top: 0; right: 0; border: 0;" src="https://assets1.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_gray_6d6d6d.png&path=" alt="Fork me on GitHub"></a>
+    
   <div id="container">
     <header>
 
     </header>
     <div id="main" role="main">
       <nav id="sidebar" class="wiki">
-        {{ site.pages["_sidebar"].content }}
+        {{ page.sidebar }}
       </nav>
 
       <article>
@@ -54,9 +55,10 @@
         {{ page.content }}
 
       </article>
+      <div class="clearfix"></div>
     </div>
     <footer>
-      {{ site.pages["_footer"].content }}
+      {{ page.footer }}
     </footer>
   </div> <!--! end of #container -->
 
