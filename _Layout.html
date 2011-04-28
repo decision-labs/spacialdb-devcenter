@@ -11,7 +11,7 @@
        Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>{{ page.title }}</title>
+  <title>SpacialDB DevCenter: {{ page.title }}</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -44,19 +44,19 @@
       <nav id="sidebar" class="wiki">
         {{ site.pages["_sidebar"].content }}
       </nav>
-      
+
       <article>
         <hgroup>
           <h1>{{ page.title }}</h1>
           <div class="clearfix"></div>
         </hgroup>
-        
+
         {{ page.content }}
-        
+
       </article>
     </div>
     <footer>
-
+      {{ site.pages["_footer"].content }}
     </footer>
   </div> <!--! end of #container -->
 
