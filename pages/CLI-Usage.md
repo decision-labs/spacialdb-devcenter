@@ -1,7 +1,7 @@
 Running `spacialdb help` displays the following usage summary:
 
 ```console
-  $ spacialdb help
+$ spacialdb help
 Usage: spacialdb COMMAND
 
 Primary command groups, type "spacialdb help GROUP" for more details:
