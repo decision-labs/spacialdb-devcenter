@@ -6,7 +6,7 @@ We are using [Gollum][gollum] and [Gollum-Site][gol-site] to generate this site 
 
 ## How to Contribute
 
-Treat this documentation like any code repository. If you have a minor addition you can submit an issue with the change or for something entirely new you can simply:
+Treat this documentation like any code repository. If you have a minor addition or fix, then select the particular file and press the   'Fork and edit file' button. For something entirely new you can:
 
 1. [Fork this repo][spacialdb-wiki]
 
@@ -34,9 +34,9 @@ Treat this documentation like any code repository. If you have a minor addition 
   rake spec
 ```
 
-6. Commit changes to your branch
+6. Commit the changes to your branch
 
-7. Send a pull request
+7. Send us a pull request
 
 [dev-center]: http://devcenter.spacialdb.com
 [spacialdb-wiki]: https://github.com/spacialdb/spacialdb-wiki
