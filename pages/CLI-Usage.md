@@ -1,15 +1,15 @@
 Running `spacialdb help` displays the following usage summary:
 ```console
 $ spacialdb help
-Usage: spacialdb COMMAND
+Usage: spacialdb COMMAND [command-specific-options]
 
-Primary command groups, type "spacialdb help GROUP" for more details:
+Primary help topics, type "spacialdb help TOPIC" for more details:
 
-  auth       # signup, login, logout
-  lifecycle  # list, create, destroy
+  auth  # authentication (signup, login, logout)
+  db    # manage databases (create, destroy)
 
-Additional groups:
+Additional topics:
 
   help     # show this help
-  version  # show the gem version
+  version  # version
 ```
