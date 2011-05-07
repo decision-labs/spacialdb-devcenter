@@ -6,20 +6,16 @@ We are using [Gollum][gollum] and [Gollum-Site][gol-site] to generate this site 
 
 ## How to Contribute
 
-Treat this documentation like any code repository. If you have a minor addition or fix, then select the particular file and press the   'Fork and edit file' button. For something entirely new you can:
+Treat this documentation like any code repository. If you have a minor addition or fix, then select the particular file and press the 'Fork and edit file' button. For something entirely new you can:
 
 1. [Fork this repo][spacialdb-wiki]
 
-2. Build a local copy by doing the following in the console:
+2. Build a local copy:
 ```console
   git clone git://github.com/spacialdb/spacialdb-wiki.git
   cd spacialdb-wiki
   gem install bundler
   bundle install
-  gollum-site generate        # Will generate the files
-  gollum-site serve           # Will start the gollum-site server
-  gollum-site serve --watch   # Will start the gollum-site server and will 
-                              # regenerate the site when changes are made
 ```
 
 3. Create a new branch:
@@ -27,18 +23,20 @@ Treat this documentation like any code repository. If you have a minor addition 
   git checkout -b <branch-name>
 ```
 
-4. Make your changes
+4. Make your changes with Gollum by running the following and going to [localhost:4567][localhost]:
+```console
+  gollum --page-file-dir pages
+```
 
 5. Run the specs and fix any formatting issues
 ```console
   rake spec
 ```
 
-6. Commit the changes to your branch
-
-7. Send us a pull request
+6. Push and send us a pull request
 
 [dev-center]: http://devcenter.spacialdb.com
 [spacialdb-wiki]: https://github.com/spacialdb/spacialdb-wiki
 [gollum]:     https://github.com/github/gollum "Gollum Repo"
 [gol-site]:   https://github.com/dreverri/gollum-site "Gollum-Site Repo"
+[localhost]: http://localhost:4567 "Gollum frontend"

@@ -1,8 +1,7 @@
 source "http://rubygems.org"
 
 gem 'rake'
-gem 'directory_watcher'
-gem 'gollum-site'
+gem 'gollum'
 gem 'rdiscount'
 gem 'RedCloth'
 gem 'rspec'
