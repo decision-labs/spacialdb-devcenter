@@ -27,7 +27,7 @@ Password confirmation:
 Signed up successfully.
 ```
 
-The `login' command will log you in with you credentials and place your private API key in `~/.spacialdb/credentials`.
+The `login` command will log you in with you credentials and place your private API key in `~/.spacialdb/credentials`.
 ```console
 $ spacialdb login
 Enter your Spacialdb credentials.
