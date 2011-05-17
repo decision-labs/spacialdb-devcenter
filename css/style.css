@@ -163,7 +163,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
  */
 
 #container { background: #fff; min-width: 1000px; width: 100%; padding-bottom: 30px; }
-#container header { width: 1000px; height: 89px; background: url(../images/bg_header.png) bottom no-repeat; margin: 0 auto; position: relative; margin-bottom: 30px; }
+#container header { width: 1000px; height: 89px; background: url(../img/bg_header.jpg) bottom no-repeat; margin: 0 auto; position: relative; margin-bottom: 30px; }
 #container header h1 { position: absolute; top: 10px; left:20px; }
 #container header nav { position: absolute; top: 34px; right: 186px; height: 55px; border-right: 1px solid #efefef; border-left: 1px solid #c5c5c5; }
 #container header nav > ul { display: inline; padding: 0; margin: 0; }
@@ -183,13 +183,13 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 
 
 #container #main nav#sidebar li {
-  list-style-image: url("../images/arrow-spacer.png"); padding: 5px 5px; border-bottom: 1px solid #f4f4f4; margin-left: 20px;
+  list-style-image: url("../img/arrow-spacer.png"); padding: 5px 5px; border-bottom: 1px solid #f4f4f4; margin-left: 20px;
 }
 #container #main nav#sidebar li.collapsed {
-  list-style-image: url("../images/collapsed-arrow.png");
+  list-style-image: url("../img/collapsed-arrow.png");
 }
 #container #main nav#sidebar li.expanded {
-  list-style-image: url("../images/expanded-arrow.png");
+  list-style-image: url("../img/expanded-arrow.png");
 }
 #container #main nav#sidebar ul li a { font-weight: bold; color: #595c61; padding: 0; border: none; display: inline; text-decoration: none; }
 #container #main nav#sidebar ul li ul li a { font-weight: normal; }
