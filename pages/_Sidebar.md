@@ -3,6 +3,6 @@
   * [[Getting Started]]
 * Tutorials
   * [[Cloud Platforms]]
-  * [[Application Frameworks]]
+  * [[Frameworks|Application Frameworks]]
 * Reference
   * [[Command Line]]
