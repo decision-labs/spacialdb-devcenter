@@ -2,7 +2,9 @@ Initial SpacialDB Wiki which contains all the information one would need.
 
 ## Recommended Articles
 
-Add some recommended article links here.
+* [[CLI Usage]]
+* [[Instant Map]]
+* [[Heroku]]
 
 ## Popular Articles
 
