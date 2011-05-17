@@ -17,14 +17,14 @@ Create a username and password. Username can only contain alpha-numeric values.
 CLI command:
 
 ```console
-    $ spacialdb signup
+$ spacialdb signup
 
-    Sign up to Spacialdb.
-    Email: shoaib@nomad-labs.com
-    Username: shoaib
-    Password: 
-    Password confirmation: 
-    Signed up successfully.
+Sign up to Spacialdb.
+Email: shoaib@nomad-labs.com
+Username: shoaib
+Password: 
+Password confirmation: 
+Signed up successfully.
 ```
 
 
@@ -37,12 +37,12 @@ Via website login at: [http://beta.spacialdb.com/login](http://beta.spacialdb.co
 CLI command:
 
 ```console
-    $ spacialdb login
+$ spacialdb login
 
-    Enter your Spacialdb credentials.
-    Email or Username: shoaib
-    Password: 
-    Logged in successfully.
+Enter your Spacialdb credentials.
+Email or Username: shoaib
+Password: 
+Logged in successfully.
 ```
 
 ## Creating a Geospatial database
@@ -54,16 +54,16 @@ Via the website after login you will be redirected to your dashboard at: [http:/
 CLI command:
 
 ```console
-    $ spacialdb create
+$ spacialdb create
 
 
-    {
-      "host":"beta.spacialdb.com",
-      "name":"spacialdb1_shoaib",
-      "password":"13971abfeb",
-      "port":5432,
-      "username":"shoaib"
-    }
+{
+  "host":"beta.spacialdb.com",
+  "name":"spacialdb1_shoaib",
+  "password":"13971abfeb",
+  "port":5432,
+  "username":"shoaib"
+}
 ```
 
 ## Connecting via QGIS
