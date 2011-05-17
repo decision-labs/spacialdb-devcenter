@@ -87,7 +87,7 @@ Connection to SpacialDB established.
 
 Coming soon...
 
-## Sintra
+## Sinatra
 
 Coming soon...
 

@@ -56,12 +56,11 @@ CLI command:
 ```console
 $ spacialdb create
 
-
 {
   "host":"beta.spacialdb.com",
   "name":"spacialdb1_shoaib",
   "password":"13971abfeb",
-  "port":5432,
+  "port":9999,
   "username":"shoaib"
 }
 ```
