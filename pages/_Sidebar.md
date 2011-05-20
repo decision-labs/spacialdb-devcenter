@@ -4,5 +4,6 @@
 * Tutorials
   * [[Cloud Platforms]]
   * [[Frameworks|Application Frameworks]]
+  * [[Applications]]
 * Reference
   * [[Command Line]]
