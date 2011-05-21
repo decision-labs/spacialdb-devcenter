@@ -23,9 +23,9 @@ Treat this documentation like any code repository. If you have a minor addition 
   git checkout -b <branch-name>
 ```
 
-4. Make your changes with Gollum by running the following and going to [localhost:4567][localhost]:
+4. Make your changes with and edit and use Gollum-site to view them by going to [localhost:8000][localhost]:
 ```console
-  gollum --page-file-dir pages
+  gollum-site serve --watch
 ```
 
 5. Run the specs and fix any formatting issues
@@ -39,4 +39,4 @@ Treat this documentation like any code repository. If you have a minor addition 
 [spacialdb-wiki]: https://github.com/spacialdb/spacialdb-wiki
 [gollum]:     https://github.com/github/gollum "Gollum Repo"
 [gol-site]:   https://github.com/dreverri/gollum-site "Gollum-Site Repo"
-[localhost]: http://localhost:4567 "Gollum frontend"
+[localhost]: http://localhost:8000 "Gollum-site frontend"

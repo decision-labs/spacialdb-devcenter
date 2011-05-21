@@ -3,8 +3,8 @@ Initial SpacialDB Wiki which contains all the information one would need.
 ## Recommended Articles
 
 * [[CLI Usage]]
-* [[Instant Map]]
-* [[Heroku]]
+* [[Using SpacialDB as a Heroku addon|Heroku]]
+* [[Learn to quickly import geospatial data and view a map|Instant Map]]
 
 ## Popular Articles
 

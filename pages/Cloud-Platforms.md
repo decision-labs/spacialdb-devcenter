@@ -2,7 +2,7 @@ SpacialDB nicely integrates with other cloud platforms. Here you can read about 
 
 ## Articles
 
-* [[Heroku]]
-* [[Google App Engine]]
-* [[Rackspace Cloud]]
-* [[Amazon Web Services]]
+* [[Deploying to Heroku|Heroku]]
+* Google App Engine
+* Rackspace Cloud
+* Amazon Web Services

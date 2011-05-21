@@ -1,3 +1,5 @@
+# Learn to quickly import geospatial data and view a map
+
 Goal of this article is to take us from sign up to a working instance of SpacialDB. By the end we will know how to create a SpacialDB instance and import-data to it and see it on a map. Something like:
 
 ![German Cities](/img/German-Cities.png)
@@ -10,7 +12,7 @@ For a complete reference of the Command-Line Usage check out the [[CLI-Usage]] p
 
 ## Sign up
 
-Via website sign up at: [http://beta.spacaildb.com/signup/free](http://beta.spacaildb.com/signup/free)
+Via website sign up at: [http://beta.spacialdb.com/signup/free](http://beta.spacialdb.com/signup/free)
 
 Create a username and password. Username can only contain alpha-numeric values. 
 
@@ -20,7 +22,7 @@ CLI command:
 $ spacialdb signup
 
 Sign up to Spacialdb.
-Email: shoaib@nomad-labs.com
+Email: shoaib@spacialdb.com
 Username: shoaib
 Password: 
 Password confirmation: 
@@ -69,7 +71,7 @@ $ spacialdb create
 
 QGIS is big! but get it. Why? Its one of the most feature rich open source desktop GIS packages out-there. And it will come in handy as you work with more and more geospatial data. We would recommend the last stable release: [http://www.qgis.org/en/download/current-software.html](http://www.qgis.org/en/download/current-software.html). Install it. After installing QGIS its time to connect and import some initial data.
 
-## Download some data
+## Download data
 
 We want Shapefiles. Most prevalent geospatial data format currently available on the web... SpacialDB envisions changing that (but more on that later). For now lets get the following datasets:
 

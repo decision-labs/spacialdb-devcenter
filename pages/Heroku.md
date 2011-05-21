@@ -76,25 +76,12 @@ end
 
 ## Local setup
 
-To try out the basic connection locally you can try saving the above script and calling with the `SPACIALDB_URL` environment variable set. If you save the script to a file called `test_spacialdb_connection.rb`
+To try out the basic connection locally you can try saving the above script and setting the `SPACIALDB_URL` environment variable when running it. For example, if you save the script to a file called `test_spacialdb_connection.rb` then try this to test your connection:
 
 ```console
 $ SPACIALDB_URL='postgres://{username}:{password}@beta.spacialdb.com:{port}/{database}' ruby test_spacialdb_connection.rb
 Connection to SpacialDB established.
 ```
-
-## Ruby on Rails
-
-Coming soon...
-
-## Sinatra
-
-Coming soon...
-
-## Rack apps
-
-Coming soon...
-
 
 Further reading:
 
