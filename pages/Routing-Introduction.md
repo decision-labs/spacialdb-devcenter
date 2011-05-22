@@ -4,6 +4,8 @@
 
 When you provision a new SpacialDB instance you get PgRouting installed and ready to go. In this tutorial we will be using data from OpenStreetMap but you can use any data you like. 
 
+By the end of this you will have a routing demo done. Check out: [[http://spacialdb-routing.heroku.com]]. If you plan to deploy then before we start you need to know how to use it with [[Heroku]].
+
 ## Importing road network data for routing
 
 Assuming you have created a database already you will need a utility called `osm2pgrouting`. This command-line tool can take data in OpenStreetMap XML format and load into a SpacialDB instance. Get it here: https://github.com/kashif/osm2pgrouting As of writing this the tool must be obtained from Kashif's github fork. After installing it we want to download some OSM format data. You can do this in two ways: 1 using the http://openstreetmap.org website to visually select the area where you want to download the data from or 2 the OSM XAPI to use `curl` or `wget`.
