@@ -80,7 +80,7 @@ You can get the whole application at [Routing Heroku Example](https://github.com
 
 1. We start by creating an Openlayers client that renders OpenStreetMap tile as well as creates a form to allow selecting the routing tools. [openlayers client](https://github.com/spacialdb/Routing-Heroku-Example/commit/e0ccdb6312354d581815186429e9f13a5f068bba#diff-1). We also setup our [routes](https://github.com/spacialdb/Routing-Heroku-Example/commit/e0ccdb6312354d581815186429e9f13a5f068bba#diff-2) and a [map_controller](https://github.com/spacialdb/Routing-Heroku-Example/commit/e0ccdb6312354d581815186429e9f13a5f068bba#diff-0). 
 
-2. Now lets setup an initializer to setup the [SpacialDB connection configuration](https://github.com/spacialdb/Routing-Heroku-Example/commit/9775d51e2158a3c9b9f1f84bd9929375313969e9#diff-4) as well as a [base class](https://github.com/spacialdb/Routing-Heroku-Example/commit/9775d51e2158a3c9b9f1f84bd9929375313969e9#diff-4) to connection to SpacialDB. 
+2. Now lets setup an initializer to setup the [SpacialDB connection configuration](https://github.com/spacialdb/Routing-Heroku-Example/commit/9775d51e2158a3c9b9f1f84bd9929375313969e9#diff-4) as well as a [base class](https://github.com/spacialdb/Routing-Heroku-Example/commit/9775d51e2158a3c9b9f1f84bd9929375313969e9#diff-3) to connection to SpacialDB. 
 
 3. Next we add the `route` method to the [controller](https://github.com/spacialdb/Routing-Heroku-Example/commit/46bce13d2f2f86d585db0bd4aa55a883e5a55a9e#diff-2) and process the start and end points to pass them to the [way model](https://github.com/spacialdb/Routing-Heroku-Example/commit/46bce13d2f2f86d585db0bd4aa55a883e5a55a9e#diff-3) to run the routing method. And thats it, you can go ahead and deploy to Heroku.
 
