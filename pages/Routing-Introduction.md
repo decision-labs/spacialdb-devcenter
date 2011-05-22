@@ -8,7 +8,7 @@ By the end of this you will have a routing demo done. Check out: [[http://spacia
 
 ## Importing road network data for routing
 
-Assuming you have created a database already you will need a utility called `osm2pgrouting`. This command-line tool can take data in OpenStreetMap XML format and load into a SpacialDB instance. Get it here: https://github.com/kashif/osm2pgrouting As of writing this the tool must be obtained from Kashif's github fork. After installing it we want to download some OSM format data. You can do this in two ways: 1 using the http://openstreetmap.org website to visually select the area where you want to download the data from or 2 the OSM XAPI to use `curl` or `wget`.
+Assuming you have created a database already you will need a utility called `osm2pgrouting`. This command-line tool can take data in OpenStreetMap XML format and load into a SpacialDB instance. Get it here: [[https://github.com/kashif/osm2pgrouting]] As of writing this the tool must be obtained from Kashif's github fork. After installing it we want to download some OSM format data. You can do this in two ways: 1 using the http://openstreetmap.org website to visually select the area where you want to download the data from or 2 the OSM XAPI to use `curl` or `wget`.
 
 ### Using the openstreetmap.org website:
 
