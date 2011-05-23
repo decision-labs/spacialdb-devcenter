@@ -1,4 +1,4 @@
-# The SpacialDB Wiki
+# The SpacialDB Devcenter
 
 This repo holds the content to the SpacialDB [devcenter.spacialdb.com][dev-center].
 
