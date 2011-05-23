@@ -1,4 +1,4 @@
-# The SpacialDB Wiki
+# The SpacialDB Devcenter
 
 This repo holds the content to the SpacialDB [devcenter.spacialdb.com][dev-center].
 
@@ -8,35 +8,34 @@ We are using [Gollum][gollum] and [Gollum-Site][gol-site] to generate this site 
 
 Treat this documentation like any code repository. If you have a minor addition or fix, then select the particular file and press the 'Fork and edit file' button. For something entirely new you can:
 
-1. [Fork this repo][spacialdb-wiki]
+1. [Fork this repo][spacialdb-devcenter]
 
 2. Build a local copy:
-```console
-  git clone git://github.com/spacialdb/spacialdb-wiki.git
-  cd spacialdb-wiki
-  gem install bundler
-  bundle install
-```
+
+        git clone git://github.com/spacialdb/spacialdb-devcenter.git
+        cd spacialdb-devcenter
+        gem install bundler
+        bundle install
+
 
 3. Create a new branch:
-```console
-  git checkout -b <branch-name>
-```
 
-4. Make your changes with and edit and use Gollum-site to view them by going to [localhost:8000][localhost]:
-```console
-  gollum-site serve --watch
-```
+        git checkout -b <branch-name>
+
+
+4. Make your changes in markdown using your favourite editor. To view your edits run the following command and go to [localhost:8000][localhost]:
+
+        gollum-site serve --watch
+
 
 5. Run the specs and fix any formatting issues
-```console
-  rake spec
-```
+
+        rake spec
 
 6. Push and send us a pull request
 
 [dev-center]: http://devcenter.spacialdb.com
-[spacialdb-wiki]: https://github.com/spacialdb/spacialdb-wiki
+[spacialdb-devcenter]: https://github.com/spacialdb/spacialdb-devcenter
 [gollum]:     https://github.com/github/gollum "Gollum Repo"
 [gol-site]:   https://github.com/dreverri/gollum-site "Gollum-Site Repo"
 [localhost]: http://localhost:8000 "Gollum-site frontend"
