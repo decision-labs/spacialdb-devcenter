@@ -12,25 +12,25 @@ Treat this documentation like any code repository. If you have a minor addition 
 
 2. Build a local copy:
 
-    git clone git://github.com/spacialdb/spacialdb-devcenter.git
-    cd spacialdb-devcenter
-    gem install bundler
-    bundle install
+        git clone git://github.com/spacialdb/spacialdb-devcenter.git
+        cd spacialdb-devcenter
+        gem install bundler
+        bundle install
 
 
 3. Create a new branch:
 
-    git checkout -b <branch-name>
+        git checkout -b <branch-name>
 
 
 4. Make your changes in markdown using your favourite editor. To view your edits run the following command and go to [localhost:8000][localhost]:
 
-    gollum-site serve --watch
+        gollum-site serve --watch
 
 
 5. Run the specs and fix any formatting issues
 
-    rake spec
+        rake spec
 
 6. Push and send us a pull request
 
