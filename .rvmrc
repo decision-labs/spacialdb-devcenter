@@ -1,1 +1,1 @@
-rvm use --create default@spacialdb-wiki
+rvm use --create default@spacialdb-devcenter
