@@ -19,7 +19,7 @@ $ brew install osm2pgsql
 
 should install it. Note that currently this installs the `default.style` config file into the `/usr/local/share/osm2pgsql/` folder, but you can always get it manually from here: [[default.style|http://svn.openstreetmap.org/applications/utils/export/osm2pgsql/default.style]]
 
-## Download OpenStreetMap data from CloudMade or Export Tab
+## Download OpenStreetMap data from CloudMade, Geofabrik or Export Tab
 
 The [[CloudMade Downloads|http://downloads.cloudmade.com/]] site contains extracts of OpenStreetMap data from different places around the world. The Just navigate to the continent and then city you are interested in and download the appropriate `*.osm.bz2` file.  For example:
 
@@ -27,7 +27,9 @@ The [[CloudMade Downloads|http://downloads.cloudmade.com/]] site contains extrac
 $ wget http://downloads.cloudmade.com/europe/western_europe/germany/berlin/berlin.osm.bz2
 ```
 
-will download the data from Berlin. If you need something local or an area which is not in the CloudMade repository, you can always go to the [[Export Tab of OpenStreetMap|http://www.openstreetmap.org/export]] and set the "Format to Export" to "OpenStreetMap XML Data". Then in the viewer you can go to the area you are interested in and drag a selection box on the map and press the "Export" button. You should receive a `map.osm` file.
+will download the data from Berlin. An alternative source of data is the [[Geofabrick Download Service|http://www.geofabrik.de/data/download.html]] similar to that of CloudMade.
+
+If you need something local or an area which is not in the CloudMade repository, you can always go to the [[Export Tab of OpenStreetMap|http://www.openstreetmap.org/export]] and set the "Format to Export" to "OpenStreetMap XML Data". Then in the viewer you can go to the area you are interested in and drag a selection box on the map and press the "Export" button. You should receive a `map.osm` file.
 
 ## Import data into SpacialDB
 
