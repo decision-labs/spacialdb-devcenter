@@ -1,4 +1,4 @@
-# Importing OSM data into SpacialDB.
+# Importing OSM data into SpacialDB
 
 To import OpenStreetMap data into SpacialDB make sure you have an account and an empty database. Note down the database information as you will need it soon. First though:
 
@@ -10,9 +10,14 @@ Installing `osm2pgsql` is easy for the different operating systems, just have a 
 
 ```console
 $ brew install osm2pgsql
+==> Checking out http://svn.openstreetmap.org/applications/utils/export/osm2pgsq
+==> ./autogen.sh
+==> ./configure
+==> make
+/usr/local/Cellar/osm2pgsql/HEAD: 6 files, 240K, built in 81 seconds
 ```
 
-should install it. Note that currently this does not install the `default.style` config file, so you will need to get it manually from here: [[default.style|http://svn.openstreetmap.org/applications/utils/export/osm2pgsql/default.style]]
+should install it. Note that currently this installs the `default.style` config file into the `/usr/local/share/osm2pgsql/` folder, but you can always get it manually from here: [[default.style|http://svn.openstreetmap.org/applications/utils/export/osm2pgsql/default.style]]
 
 ## Download OpenStreetMap data from CloudMade or Export Tab
 
@@ -29,8 +34,8 @@ will download the data from Berlin. If you need something local or an area which
 Once you have the data you will need to run the following command, replacing the SpacialDB database name and username with your own:
 
 ```console
-$ osm2pgsql berlin.osm.bz2  -H beta.spacialdb.com -P 9999 -d spacialdb0_krasul -U krasul -W -S ./default.style --hstore -s
+$ osm2pgsql berlin.osm.bz2  -H beta.spacialdb.com -P 9999 -d spacialdb0_krasul -U krasul -W -S /usr/local/share/osm2pgsql/default.style --hstore -s
 ```
 
-This command will ask for your database password. Note that `osm2pgsql` needs the location of the `default.style` file and in the case above it is in the same folder as `berlin.osm.bz2`. In a short while, depending on the size of your data, the command should finish successfully.
+This command will ask for your database password. Note that `osm2pgsql` needs the location of the `default.style` file and you might need to adjust it depending on your setup. In a short while, depending on the size of your data, the command should finish successfully.
 
