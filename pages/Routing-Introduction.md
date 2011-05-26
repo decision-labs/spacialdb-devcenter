@@ -16,15 +16,17 @@ You simply pan to the region of interest and click the export tab. Here select t
 
 ### Using the openstreetmap.org API:
 
-The signature for the openstreetmap data API is as follows:
+The openstreetmap data API call is as follows:
 
     http://api.openstreetmap.org/api/0.6/map?bbox={x-lon-min},{y-lat-min},{x-lon-max},{y-lat-max} 
 
-So lets download some data around Berlin
+So lets download some data around Berlin.
 
-    $ wget http://api.openstreetmap.org/api/0.6/map?bbox=13.415677,52.517816,13.420215,52.520088
+    $ wget -O map.osm http://api.openstreetmap.org/api/0.6/map?bbox=13.415677,52.517816,13.420215,52.520088
 
-Then simply run osm2pgrouting with the downloaded data. You can get the information about your database by running `spacialdb list` on the command-line. Use this to run
+Then simply run `osm2pgrouting` with the downloaded data. You can get the information about your database by running `spacialdb list` on the command-line. The file named `mapconfig.xml` is shipped with `osm2pgrouting`. It contains tag names that will be imported into the routing database. Read more about `osm2pgrouting`.
+
+ here: [[http://workshop.pgrouting.org/chapters/osm2pgrouting.html]]. Use you database connection parameters to run:
 
 ```console
 # SPACIALDB_USER=username
