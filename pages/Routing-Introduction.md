@@ -70,7 +70,7 @@ select * from dijkstra_sp('ways', 125, 271)
 
 ## Writing the Rails Application and deploying it on Heroku
 
-Lets write an application in Ruby on Rails that makes use of SpacialDB as its routing engine. We will deploy this application to Heroku. Before starting you need to have created a new rails application via heroku and have added a spacialdb addon by running: 
+Lets write an application in Ruby on Rails that makes use of SpacialDB as its routing engine. We will deploy this application to Heroku. Before starting you need to have created a new rails application via Heroku and have added a SpacialDB addon by running:
 
 ```console
 $ heroku addons:add spacialdb:test
