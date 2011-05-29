@@ -36,7 +36,7 @@ In order to use the `libpq.a` in your own iOS app, simply drag and drop the `lib
 
 ![XCode-1](/img/xcode-1.png)
 
-After that you want to add the `libpq-ios` as a Target Dependency in the Build Phases of our iOS app.
+After that you want to add the `libpq-ios` as a **Target Dependency** in the **Build Phases** of our iOS app.
 
 ![XCode-2](/img/xcode-2.png)
 
@@ -45,7 +45,7 @@ Then we add the `libpq.a` static library to Link it with our binary and we move 
 ![XCode-3](/img/xcode-3.png)
 
 
-Finally we add the `libpq` headers so that we can include it inside our code. Simply right click on the Support Files group and select the "Add Files to..." item and select the `include` folder inside the root of the  `libpq-ios` repository. Make sure you have selected "Create groups for any added folders" option.
+Finally we add the `libpq` headers so that we can include it inside our code. Simply right click on the **Support Files** group and select the **Add Files to...** item and select the `include` folder inside the root of the  `libpq-ios` repository. Make sure you have selected the **Create groups for any added folders** option.
 
 ![XCode-4](/img/xcode-4.png)
 
