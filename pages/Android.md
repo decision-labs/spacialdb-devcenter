@@ -47,7 +47,7 @@ try {
 And to connect, you need to get a `Connection` instance from JDBC. To do this, you use the `DriverManager.getConnection()` method which needs a `url` string and some properties:
 
 ```java
-String url = "jdbc:postgresql://beta.spacialdb.comL:9999/spacialdb0_krasul";
+String url = "jdbc:postgresql://beta.spacialdb.com:9999/spacialdb0_krasul";
 Properties props = new Properties();
 props.setProperty("user","krasul");
 props.setProperty("password","passwd");
