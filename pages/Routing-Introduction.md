@@ -6,11 +6,9 @@ When you provision a new SpacialDB instance you get [[PgRouting|http://www.pgrou
 
 By the end of this you will have a routing demo done. Check out: [[http://spacialdb-routing.heroku.com]]. If you plan to deploy then before we start you need to know how to use it with [[Heroku]].
 
-## Importing road network data for routing
+## Getting the road network data
 
-Assuming you have created a database already you will need a utility called `osm2pgrouting`. This command-line tool can take data in OpenStreetMap XML format and load into a SpacialDB instance. Get it here: [[https://github.com/kashif/osm2pgrouting]] As of writing this the tool must be obtained from Kashif's github fork. After installing it we want to download some OSM format data. You can do this in two ways:
-1. visually using the [[http://openstreetmap.org]] website by selecting the region where you want to download the data from or
-2. the OSM XAPI to use `curl` or `wget`.
+We first want to download some OSM format data which we will convert into a network for routing. You can get this data in two ways:
 
 ### Using the openstreetmap.org website:
 
@@ -22,11 +20,16 @@ The OpenStreetMap data API call is as follows:
 
     http://api.openstreetmap.org/api/0.6/map?bbox={x-lon-min},{y-lat-min},{x-lon-max},{y-lat-max} 
 
-So lets download some data around Berlin.
+So lets download some data around Berlin by using `wget` (or `curl`)
 
     $ wget -O map.osm http://api.openstreetmap.org/api/0.6/map?bbox=13.415677,52.517816,13.420215,52.520088
 
-Then simply run `osm2pgrouting` with the downloaded data. You can get the information about your database by running `spacialdb list` on the command-line. The file named `mapconfig.xml` is shipped with `osm2pgrouting`. It contains tag names that will be imported into the routing database. Learn  more about `osm2pgrouting` from this great [[workshop|http://workshop.pgrouting.org/]].
+
+## Importing road network data for routing
+
+Assuming you have created a database already you will need a utility called `osm2pgrouting`. This command-line tool can take data in OpenStreetMap XML format and load it into a SpacialDB instance. Get it here: [[https://github.com/kashif/osm2pgrouting]] As of writing this the tool must be obtained from Kashif's github fork and requires PostGIS, Boost, and CMake to be installed on your system.
+
+Once installed, simply run `osm2pgrouting` on the downloaded data. You can get the information about your database by running `spacialdb list` on the command-line. The file named `mapconfig.xml` is shipped with `osm2pgrouting`. It contains tag names that will be imported into the routing database. Learn  more about `osm2pgrouting` from this great [[workshop|http://workshop.pgrouting.org/]].
 
 Use you database connection parameters to run:
 
@@ -37,7 +40,7 @@ Use you database connection parameters to run:
 # SPACIALDB_HOST=beta.spacialdb.com
 # SPACIALDB_PORT=9999
 
-$ osm2pgrouting -file map.osm.osm \
+$ osm2pgrouting -file map.osm \
   -conf /path/to/osm2pgrouting/mapconfig.xml \
   -dbname $SPACIALDB_DB \
   -user $SPACIALDB_USER \
@@ -46,11 +49,11 @@ $ osm2pgrouting -file map.osm.osm \
   -passwd $SPACIALDB_PASS -clean
 ```
 
-After this you should be able to view this data in [[QGIS|Instant Map]]. Connect to your database using PostGIS connection, add the `ways` and `vertices_tmp` tables, and see something like:
+After this you should be able to view this data in [[QGIS|Instant Map]]. Connect to your database using the PostGIS connection, add the `ways` and `vertices_tmp` tables, and you should see something like:
 
 ![German Cities](/img/ways-and-vertices.png)
 
-Lets do some routing. We now have access to quite a few routing functions. lets try `shortest_path` between two `ways` with `source_id=1` and `target_id=240`:
+Lets do some routing. We now have access to quite a few routing functions. lets try `shortest_path` between two `ways` with say: `source_id=1` and `target_id=240`:
 
 ```sql
 SELECT * FROM shortest_path('
