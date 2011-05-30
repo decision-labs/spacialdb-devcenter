@@ -12,7 +12,7 @@ For a complete reference of the Command-Line Usage check out the [[CLI-Usage]] p
 
 ## Sign up
 
-Via website sign up at: [http://beta.spacialdb.com/signup/free](http://beta.spacialdb.com/signup/free)
+Via the website sign up at: [http://beta.spacialdb.com/signup/free](http://beta.spacialdb.com/signup/free)
 
 Create a username and password. Username can only contain alpha-numeric values. 
 
@@ -32,9 +32,9 @@ Signed up successfully.
 
 ## Login
 
-If you just signed up you are also automatically logged in. Otherwise, to login you need you email or username and password.
+If you just signed up you are also automatically logged in. Otherwise, to login you need your email or username and password.
 
-Via website login at: [http://beta.spacialdb.com/login](http://beta.spacialdb.com/login)
+Via the website login at: [http://beta.spacialdb.com/login](http://beta.spacialdb.com/login)
 
 CLI command:
 
@@ -51,7 +51,7 @@ Logged in successfully.
 
 Awesome! Signed up, logged-in; we are ready for our first geospatial database. If you have used PostGIS before you will have all the PostGIS goodness you are used to, with the added bonus of accessibility from anywhere and anytime. Not to mention some of the real-time APIs for mobile development that will be available soon.
 
-Via the website after login you will be redirected to your dashboard at: [http://beta.spacialdb.com/dashboard](http://beta.spacialdb.com/dashboard). You will see the "New Database" button here. Go ahead and click it... and bam! you have a fresh install of a personal Geospatial database. You will see the connection parameters here.
+Via the website after login you will be redirected to your dashboard at: [http://beta.spacialdb.com/dashboard](http://beta.spacialdb.com/dashboard). You will see the **New Database** button here. Go ahead and click it... and bam! you have a fresh install of a personal Geospatial database. You will see the connection parameters here.
 
 CLI command:
 
@@ -80,7 +80,7 @@ We want Shapefiles. Most prevalent geospatial data format currently available on
 
 ## Download the PostGIS plugin
 
-PostGIS has a plugin manager. From here we get our hands on the Spit plugin. A great little utility for importing Shapefiles straight into PostGIS.
+QGIS has a plugin manager. From there we get our hands on the Spit plugin. A great little utility for importing Shapefiles straight into PostGIS.
 
 ## Upload some data
 
@@ -88,5 +88,5 @@ Lets fire up the plugin to connect to your new database and import the Shapefile
 
 ## View the data.
 
-Click "Add a PostGIS layer" button and you can connect to your new database 
+Click **Add a PostGIS layer** button and you can connect to your new database.
 

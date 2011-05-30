@@ -101,7 +101,6 @@ Completed planet_osm_polygon
 Completed planet_osm_point
 Completed planet_osm_line
 Completed planet_osm_roads
-
 ```
 
 This command will ask for your database password. Note that `osm2pgsql` needs the location of the `default.style` file and you might need to adjust it depending on your setup. In a short while, depending on the size of your data, the command should finish successfully.

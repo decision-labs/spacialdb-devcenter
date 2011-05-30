@@ -2,21 +2,23 @@
 
 ## Out of the box routing
 
-When you provision a new SpacialDB instance you get PgRouting installed and ready to go. In this tutorial we will be using data from OpenStreetMap but you can use any data you like. 
+When you provision a new SpacialDB instance you get [[PgRouting|http://www.pgrouting.org/]] installed and ready to go. In this tutorial we will be using data from OpenStreetMap but you can use any data you like. 
 
 By the end of this you will have a routing demo done. Check out: [[http://spacialdb-routing.heroku.com]]. If you plan to deploy then before we start you need to know how to use it with [[Heroku]].
 
 ## Importing road network data for routing
 
-Assuming you have created a database already you will need a utility called `osm2pgrouting`. This command-line tool can take data in OpenStreetMap XML format and load into a SpacialDB instance. Get it here: [[https://github.com/kashif/osm2pgrouting]] As of writing this the tool must be obtained from Kashif's github fork. After installing it we want to download some OSM format data. You can do this in two ways: (1) visually using the [[http://openstreetmap.org]] website by selecting the region where you want to download the data from or (2) the OSM XAPI to use `curl` or `wget`.
+Assuming you have created a database already you will need a utility called `osm2pgrouting`. This command-line tool can take data in OpenStreetMap XML format and load into a SpacialDB instance. Get it here: [[https://github.com/kashif/osm2pgrouting]] As of writing this the tool must be obtained from Kashif's github fork. After installing it we want to download some OSM format data. You can do this in two ways:
+1. visually using the [[http://openstreetmap.org]] website by selecting the region where you want to download the data from or
+2. the OSM XAPI to use `curl` or `wget`.
 
 ### Using the openstreetmap.org website:
 
-You simply pan to the region of interest and click the export tab. Here select the export format to be osm and submit. This will start the download of the osm data. Most probably saved as `map.osm`
+You simply pan to the region of interest and click the **Export** tab. Here select the export format to be **OpenStreetMap XML Data** and **Export**. This will start the download of the OpenStreetMap data, most probably saved as `map.osm`.
 
 ### Using the openstreetmap.org API:
 
-The openstreetmap data API call is as follows:
+The OpenStreetMap data API call is as follows:
 
     http://api.openstreetmap.org/api/0.6/map?bbox={x-lon-min},{y-lat-min},{x-lon-max},{y-lat-max} 
 
@@ -24,9 +26,9 @@ So lets download some data around Berlin.
 
     $ wget -O map.osm http://api.openstreetmap.org/api/0.6/map?bbox=13.415677,52.517816,13.420215,52.520088
 
-Then simply run `osm2pgrouting` with the downloaded data. You can get the information about your database by running `spacialdb list` on the command-line. The file named `mapconfig.xml` is shipped with `osm2pgrouting`. It contains tag names that will be imported into the routing database. Read more about `osm2pgrouting`.
+Then simply run `osm2pgrouting` with the downloaded data. You can get the information about your database by running `spacialdb list` on the command-line. The file named `mapconfig.xml` is shipped with `osm2pgrouting`. It contains tag names that will be imported into the routing database. Learn  more about `osm2pgrouting` from this great [[workshop|http://workshop.pgrouting.org/]].
 
- here: [[http://workshop.pgrouting.org/chapters/osm2pgrouting.html]]. Use you database connection parameters to run:
+Use you database connection parameters to run:
 
 ```console
 # SPACIALDB_USER=username
@@ -44,11 +46,11 @@ $ osm2pgrouting -file map.osm.osm \
   -passwd $SPACIALDB_PASS -clean
 ```
 
-After this you should be able to view this data in QGIS. Connect to your database using PostGIS connection, add the `ways` and `vertices_tmp` tables:
+After this you should be able to view this data in [[QGIS|Instant Map]]. Connect to your database using PostGIS connection, add the `ways` and `vertices_tmp` tables, and see something like:
 
 ![German Cities](/img/ways-and-vertices.png)
 
-Lets do some routing. We now have access to quite a few routing functions. lets try `shortest_path`:
+Lets do some routing. We now have access to quite a few routing functions. lets try `shortest_path` between two `ways` with `source_id=1` and `target_id=240`:
 
 ```sql
 SELECT * FROM shortest_path('
@@ -60,7 +62,7 @@ SELECT * FROM shortest_path('
   1, 240, false, false);
 ```
 
-This gives us the vertices of the route. If you want to visualise this install the QGIS plugin called `RT SQL Layer`. 
+This gives us the vertices of the route. If you want to visualise this, install the QGIS plugin called `RT SQL Layer` and call `dijkstra_sp` with the start and end `id` of the result from the previous query:
 
 ```sql
 select * from dijkstra_sp('ways', 125, 271)
