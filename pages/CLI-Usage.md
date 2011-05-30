@@ -1,4 +1,5 @@
 Running `spacialdb help` displays the following usage summary:
+
 ```console
 $ spacialdb help
 Usage: spacialdb COMMAND [command-specific-options]
@@ -17,6 +18,7 @@ Additional topics:
 ## Authentication Commands
 
 The `signup` command simply signs you up to a free plan:
+
 ```console
 $ spacialdb signup
 Sign up to Spacialdb.
@@ -28,6 +30,7 @@ Signed up successfully.
 ```
 
 The `login` command will log you in with you credentials and place your private API key in `~/.spacialdb/credentials`.
+
 ```console
 $ spacialdb login
 Enter your Spacialdb credentials.

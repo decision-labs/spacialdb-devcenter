@@ -63,6 +63,7 @@ try {
 Any time you want to issue SQL statements to the database, you require a `Statement` or `PreparedStatement` instance. Once you have a `Statement` or `PreparedStatement`, you can use issue a query. This will return a `ResultSet` instance, which contains the entire result.
 
 In the end you will need to close the connection:
+
 ```java
 finally {
   if (conn != null) {
