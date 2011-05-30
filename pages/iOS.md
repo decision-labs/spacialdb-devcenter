@@ -59,7 +59,8 @@ Finally you can now call the `libpq` include file: `libpq-fe.h`  inside your app
 Now its up to you to write the logic for your app and use the `libpq` connection to query SpacialDB and receive  results. In particular to connect you will need your connection string which is constructed from the database information in the SpacialDB Dashboard or CLI.
 
 For example we could do something like:
-```obj-c
+
+```objective-c
 - (void)viewDidLoad
 {
     [super viewDidLoad];
