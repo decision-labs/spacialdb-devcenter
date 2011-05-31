@@ -56,19 +56,42 @@ Finally you can now call the `libpq` include file: `libpq-fe.h`  inside your app
 
 ## Writing business logic
 
-Now its up to you to write the logic for your app and use the `libpq` connection to query SpacialDB and receive  results. In particular to connect you will need your connection string which is constructed from the database information in the SpacialDB Dashboard or CLI.
+Now its up to you to write the logic for your app and use the `libpq` connection to query SpacialDB and receive results. In particular to connect you will need your connection string which is constructed from the database information in the SpacialDB Dashboard or CLI.
 
-For example we could do something like:
+For example given something like this in our `appViewController.h`:
+
+```objective-c
+#import <UIKit/UIKit.h>
+#include "libpq-fe.h"
+
+@interface appViewController : UIViewController {
+    const char *conninfo;
+    PGconn     *conn;
+    PGresult   *res;
+}
+
+@end
+```
+
+we could do something like the following in `appViewController.m`:
 
 ```objective-c
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     conninfo = "dbname=spacialdb0_krasul host=beta.spacialdb.com port=9999 user=krasul password=mypasswd";
     conn = PQconnectdb(conninfo);
+
     if (PQstatus(conn) != CONNECTION_OK)
     {
-        //TODO
+        NSString *title=@"Connection to database failed:";
+        NSString *message = [[NSString alloc] initWithUTF8String:PQerrorMessage(conn)];
+
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        [alertView release];
+        [message release];
     }
 }
 
