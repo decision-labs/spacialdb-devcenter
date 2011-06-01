@@ -85,7 +85,7 @@ we could do something like the following in `appViewController.m`:
 
     if (PQstatus(conn) != CONNECTION_OK)
     {
-        NSString *title=@"Connection to database failed:";
+        NSString *title = @"Connection to database failed:";
         NSString *message = [[NSString alloc] initWithUTF8String:PQerrorMessage(conn)];
 
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
