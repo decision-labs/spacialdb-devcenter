@@ -5,4 +5,5 @@ SpacialDB nicely integrates with software development frameworks. Here you can r
 * Rails
 * Sinatra
 * Django
+* [[Node.js|Node]]
 * PHP
