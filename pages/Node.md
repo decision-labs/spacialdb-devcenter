@@ -2,7 +2,7 @@
 
 In this article we learn to connect to SpacialDB using Node.js.
 
-## Prerequisits
+## Prerequisites
 
 1. npm: If you are new to Node.js you will need the [[node package manager|http://npmjs.org/]] installed. This article uses version 1.0.9-1.
 
