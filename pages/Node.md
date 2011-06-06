@@ -49,7 +49,7 @@ We can use the [[node-coffee-project|https://github.com/sstephenson/node-coffee-
 $ git clone https://github.com/sstephenson/node-coffee-project.git spacialdb-example
 ```
 
-The first thing we do is to add `node-postgre` to the `package.json` as a dependency:
+The first thing we do is to add `node-postgres` to the `package.json` as a dependency:
 
 ```javascript
 , "dependencies":
