@@ -8,7 +8,7 @@ In this article we learn to connect to SpacialDB using Node.js.
 
 2. coffee-script: Since we will be writing the code in `coffee-script` you need to install [[coffee-script|http://jashkenas.github.com/coffee-script/]] by simply doing: `npm install -g coffee-script`
 
-3. spacialdb account: you need an account on [[SpacialDB|http://spacialdb.com]]. <a class='button' href='mailto:info@spacialdb.com?try-node'> Get beta invite</a>
+3. SpacialDB account: you need an account on [[SpacialDB|http://spacialdb.com]]. <a class='button' href='mailto:info@spacialdb.com?try-node'> Get beta invite</a>
 
 **Note**: If you find that you are installing something globally by using the `-g` option to `npm`, but cannot `require()` it the you might need to install it locally without the `-g` option to `npm`. In this case, the modules are installed in the `node_module/` folder of the current working directory of a particular project, and the packages binaries are installed in the `node_module/.bin/` folder. In the absence of a project, this folder is created in the home directory: `~/node_module/`, and so you need to make sure that your `PATH` and `NODE_PATH` environment variables are set appropriately. You might also want to use `npm link` for linking your current working code into  Node's  path,  so that you don't have to reinstall every time you make a change.
 
@@ -56,9 +56,10 @@ The first thing we do is to add `node-postgres` to the `package.json` as a depen
   {"pg": ">=0.5.0"
   }
 ```
-and running `npm install` in the root folder should install all the dependencies in a `node_module/` folder in the current working directory. So we can now go ahead and write some code.
 
-By default, the `require('pg')` will use the Javascript bindings, and to use the `libpq` bindings just do the following in say your `index.coffee` file in the `src/` folder:
+and run `npm install` in the root folder to install all the dependencies in a `node_module/` folder in the current working directory. So we can now go ahead and write some code.
+
+By default, the `require('pg')` will use the JavaScript bindings, and to use the `libpq` bindings just do the following in say your `index.coffee` file in the `src/` folder:
 
 ```coffeescript
 pg = require('pg').native
@@ -77,4 +78,4 @@ pg.connect conString, (err, client) ->
     console.log "Current year: %d", result.rows[0].when.getYear()
 ```
 
-Now we run: `cake build` to generate the Javascript in the `lib/` folder and can execute it with `node`.
+Now we run: `cake build` to generate the JavaScript in the `lib/` folder and can execute it with `node`.
