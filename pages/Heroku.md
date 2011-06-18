@@ -60,7 +60,9 @@ def establish_active_record_connection(url)
       :password => matchdata[3],
       :host => matchdata[4],
       :port => Integer(matchdata[5]),
-      :database => matchdata[6]
+      :database => matchdata[6],
+      :pool => 5,
+      :wait_timeout => 60
     )
   end
 end
