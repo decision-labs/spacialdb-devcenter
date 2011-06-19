@@ -1,10 +1,10 @@
 # Connecting to SpacialDB from Node.js
 
-In this article we learn to connect to SpacialDB using Node.js.
+In this article we learn to connect to SpacialDB using [[Node.js|http://nodejs.org/]].
 
 ## Prerequisites
 
-1. npm: If you are new to Node.js you will need the [[node package manager|http://npmjs.org/]] installed. This article uses version 1.0.9-1.
+1. npm: If you are new to Node.js you will need the [[node package manager|http://npmjs.org/]] installed. This article uses version 1.x.
 
 2. coffee-script: Since we will be writing the code in `coffee-script` you need to install [[coffee-script|http://jashkenas.github.com/coffee-script/]] by simply doing: `npm install -g coffee-script`
 
@@ -14,7 +14,7 @@ In this article we learn to connect to SpacialDB using Node.js.
 
 ## PostgreSQL Client
 
-The [[node-postgres|https://github.com/brianc/node-postgres]] project provides a non-blocking PostgreSQL client for [[node.js|nodejs.org]], with pure JavaScript and native `libpq` bindings, and we use it to connect to SpacialDB. If you have `npm` installed then simply:
+The [[node-postgres|https://github.com/brianc/node-postgres]] project provides a non-blocking PostgreSQL client for Node.js, with pure JavaScript and native `libpq` bindings, and we use it to connect to SpacialDB. If you have `npm` installed then simply doing:
 
 ```console
 $ npm install pg
@@ -39,7 +39,7 @@ Waf: Leaving directory `/Users/kashif/node_modules/pg/build'
 pg@0.5.0 ../../node_modules/pg 
 ```
 
-should build and install the bindings assuming you have `libpq` or `postgresql` installed.
+should build and install the bindings assuming you have `libpq` or `postgresql` installed on  your system.
 
 ## Simple example
 
