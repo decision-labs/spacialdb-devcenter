@@ -21,7 +21,7 @@ should install it. Note that currently this installs the `default.style` config 
 
 ## Download OpenStreetMap data from CloudMade, Geofabrik or Export Tab
 
-The [[CloudMade Downloads|http://downloads.cloudmade.com/]] site contains extracts of OpenStreetMap data from different places around the world. The Just navigate to the continent and then city you are interested in and download the appropriate `*.osm.bz2` file.  For example:
+The [[CloudMade Downloads|http://downloads.cloudmade.com/]] site contains extracts of OpenStreetMap data from different places around the world. Just navigate to the continent and then city you are interested in and download the appropriate `*.osm.bz2` file.  For example:
 
 ```console
 $ wget http://downloads.cloudmade.com/europe/western_europe/germany/berlin/berlin.osm.bz2
