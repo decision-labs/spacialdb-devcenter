@@ -16,3 +16,22 @@ import psycopg2
 conn = psycopg2.connect("dbname=test user=postgres")
 ```
 
+## Retrieve some data
+
+```python
+# Open a cursor to perform database operations
+cur = conn.cursor()
+
+# Get the time
+cur.execute("SELECT NOW() AS when;")
+
+# Fetch the next row of the query
+result = cur.fetchone()
+
+# Do something fancy with it
+print result[0]
+
+# Close cursor and connection
+cur.close()
+conn.close()
+```
