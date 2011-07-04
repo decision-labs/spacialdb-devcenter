@@ -40,13 +40,13 @@ conn.close()
 
 We will use [[django|https://www.djangoproject.com/]] and the [[geodjango|http://geodjango.org/]] extension to build a little demo app. For installation instructions, please refer to the [[django wiki|https://docs.djangoproject.com/en/1.3/intro/install/]].
 
-First of all, let's create a new django project called spacial_example:
+First of all, let's create a new django project called `spacial_example`:
 
 ```console
-django-admin startproject spacial_example
+$ django-admin startproject spacial_example
 ```
 
-In the next step we will configure django to use the geodjango backend and your database at spacialdb. Just edit the settings.py file in your new project directory:
+In the next step we will configure django to use the geodjango backend and your database at SpacialDB. Just edit the `settings.py` file in your new project directory:
 
 ```python
 DATABASES = {
@@ -75,10 +75,10 @@ INSTALLED_APPS = (
 Let's create a new app in the project directory named places.
 
 ```console
-django-admin startapp places
+$ django-admin startapp places
 ```
 
-Add your app to the installed apps in the settings.py file.
+Add your app to the installed apps in the `settings.py` file.
 
 ```python
 INSTALLED_APPS = (
@@ -93,10 +93,11 @@ INSTALLED_APPS = (
 )
 ```
 
-Define a model which gets mapped into the database. To do so, edit places/models.py in your project directory.
+Define a model which gets mapped into the database. To do so, edit `places/models.py` in your project directory.
 
 ```python
-import models from django.contrib.gis.db  # use the extended models from geodjango
+# use the extended models from geodjango
+import models from django.contrib.gis.db
 
 class Place(models.Model):
     tag = models.CharField(max_length=250) # just a string
@@ -109,13 +110,13 @@ class Place(models.Model):
 
 We now have to sync the database with our model.
 ```console
-python manage.py syncdb
+$ python manage.py syncdb
 ```
 
-Let's add a place to the database. We use the buildin shell for this.
+Let's add a place to the database. We use the built in shell for this.
 
 ```console
-python manage.py shell
+$ python manage.py shell
 
 >>> from places.models import Place
 >>> # get all places
@@ -127,7 +128,7 @@ python manage.py shell
 >>>Place.objects.all()
 ```
 
-It's time to add a page to your site. The first step is to add the url pattern for the page. There will be an admin interface and a site serving information about all places. First, edit the urls.py file in your project directory.
+It's time to add a page to your site. The first step is to add the url pattern for the page. There will be an admin interface and a site serving information about all places. First, edit the `urls.py` file in your project directory.
 
 ```python
 from django.conf.urls.defaults import *
@@ -141,7 +142,7 @@ urlpatterns = patterns('',
 )
 ```
 
-Next create/edit the urls.py file in your app directory.
+Next create/edit the `urls.py` file in your app directory.
 
 ```python
 from django.conf.urls.defaults import *
@@ -151,7 +152,7 @@ urlpatterns = patterns('places.views',
 )
 ```
 
-Create a view which renders all the places. Define your view in places/views.py.
+Create a view which renders all the places. Define your view in `places/views.py`.
 
 ```python
 from django.http import HttpResponse
@@ -172,7 +173,7 @@ def index(request):
     return HttpResponse(t.render(c))
 ```
 
-Create a directory outside of your project directory for the templates you want to use in your project. Create a directory for the places templates called places in the directory.
+Create a directory outside of your project directory for the templates you want to use in your project. Create a directory for the places templates called `places` in the directory.
 
 ```python
 TEMPLATE_DIRS = (
@@ -181,8 +182,8 @@ TEMPLATE_DIRS = (
 )
 ```
 
-Let's define the template we want to render. Create a file called index.html in the places template directory.
-```
+Let's define the template we want to render. Create a file called `index.html` in the places template directory.
+```html
 {% if places %}
     <ul>
         {% for place in places %}
@@ -196,17 +197,16 @@ Let's define the template we want to render. Create a file called index.html in 
 
 Now you should be able to browse your places under [[http://localhost:8000/places|http://localhost:8000/places]].
 
-Add places to the admin interface. Create an admin.py file in the app directory. After this step you should be able to edit your places in the [[admin interface|http://localhost:8000/admin]].
+Add places to the admin interface. Create an `admin.py` file in the `app` directory. After this step you should be able to edit your places in the [[admin interface|http://localhost:8000/admin]].
 
 ```python
 from places.models import Place
 from django.contrib import admin
 
 admin.site.register(Place)
-
 ```
 
-What if we want all places in Europe? Let's add another view for all places in Europe. Edit the views.py file in the app directory.
+What if we want all places in Europe? Let's add another view for all places in Europe. Edit the `views.py` file in the app directory.
 
 ```python
 from django.contrib.gis.geos import *
@@ -221,7 +221,7 @@ def europe(request):
     return HttpResponse(t.render(c))
 ```
 
-Add the urlpattern for the view in urls.py file in the app directory.
+Add the `urlpattern` for the view in `urls.py` file in the app directory.
 
 ```python
 from django.conf.urls.defaults import *
