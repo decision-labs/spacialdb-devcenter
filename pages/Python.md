@@ -105,7 +105,7 @@ class Place(models.Model):
     objects = models.GeoManager() # adds spatial requests
 
     def __unicode__(self):
-        return selt.tag
+        return self.tag
 ```
 
 We now have to sync the database with our model.
@@ -142,7 +142,7 @@ urlpatterns = patterns('',
 )
 ```
 
-Next create/edit the `urls.py` file in your app directory.
+Next create/edit the `urls.py` file in your `app\` directory.
 
 ```python
 from django.conf.urls.defaults import *
@@ -173,7 +173,7 @@ def index(request):
     return HttpResponse(t.render(c))
 ```
 
-Create a directory outside of your project directory for the templates you want to use in your project. Create a directory for the places templates called `places` in the directory.
+Create a directory outside of your project directory for the templates you want to use in your project. Create a directory for the places templates called `places` inside this directory. Finally in your `settings.py` add its absolute path in the `TEMPLATE_DIRS`:
 
 ```python
 TEMPLATE_DIRS = (
@@ -197,7 +197,7 @@ Let's define the template we want to render. Create a file called `index.html` i
 
 Now you should be able to browse your places under [[http://localhost:8000/places|http://localhost:8000/places]].
 
-Add places to the admin interface. Create an `admin.py` file in the `app` directory. After this step you should be able to edit your places in the [[admin interface|http://localhost:8000/admin]].
+Add places to the admin interface. Create an `admin.py` file in the `app\` directory. After this step you should be able to edit your places in the [[admin interface|http://localhost:8000/admin]].
 
 ```python
 from places.models import Place
@@ -206,7 +206,7 @@ from django.contrib import admin
 admin.site.register(Place)
 ```
 
-What if we want all places in Europe? Let's add another view for all places in Europe. Edit the `views.py` file in the app directory.
+What if we want all places in Europe? Let's add another view for all places in Europe. Edit the `views.py` file in the `app\` directory.
 
 ```python
 from django.contrib.gis.geos import *
@@ -221,7 +221,7 @@ def europe(request):
     return HttpResponse(t.render(c))
 ```
 
-Add the `urlpattern` for the view in `urls.py` file in the app directory.
+Add the `urlpattern` for the view in `urls.py` file in the `app\` directory.
 
 ```python
 from django.conf.urls.defaults import *
