@@ -36,7 +36,7 @@
 # Because X-UA-Compatible isn't sent to non-IE (to save header bytes),
 # We need to inform proxies that content changes based on UA
   Header append Vary User-Agent
-# Cache control is set only if mod_headers is enabled, so that's unncessary to declare
+# Cache control is set only if mod_headers is enabled, so that's unnecessary to declare
 </IfModule>
 
 
@@ -60,9 +60,9 @@
 
 # Allow access from all domains for webfonts.
 # Alternatively you could only whitelist your
-# subdomains like "sub.domain.com".
+# subdomains like "subdomain.example.com".
 
-<FilesMatch "\.(ttf|otf|eot|woff|font.css)$">
+<FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css)$">
   <IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin "*"
   </IfModule>
@@ -154,6 +154,13 @@ AddType text/x-vcard                   vcf
   FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/json
   FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xml
   FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-javascript
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xhtml+xml
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/rss+xml
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/atom+xml
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/vnd.ms-fontobject
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/svg+xml
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-font-ttf
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $font/opentype
   FilterChain     COMPRESS
   FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
 </IfModule>
@@ -163,12 +170,9 @@ AddType text/x-vcard                   vcf
   AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
   AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript 
   AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+  AddOutputFilterByType DEFLATE application/xhtml+xml application/rss+xml application/atom+xml
+  AddOutputFilterByType DEFLATE image/svg+xml application/vnd.ms-fontobject application/x-font-ttf font/opentype
 </IfModule>
-
-# Webfonts and SVG:
-  <FilesMatch "\.(ttf|otf|eot|svg)$" >
-    SetOutputFilter DEFLATE
-  </FilesMatch>
 </IfModule>
 
 
@@ -203,8 +207,9 @@ AddType text/x-vcard                   vcf
   ExpiresByType application/xml           "access plus 0 seconds"
   ExpiresByType application/json          "access plus 0 seconds"
 
-# RSS feed
+# Feed
   ExpiresByType application/rss+xml       "access plus 1 hour"
+  ExpiresByType application/atom+xml      "access plus 1 hour"
 
 # Favicon (cannot be renamed)
   ExpiresByType image/x-icon              "access plus 1 week" 
@@ -320,7 +325,7 @@ FileETag None
 # ----------------------------------------------------------------------
 
 # Option 1:
-# Rewrite "www.domain.com -> domain.com" 
+# Rewrite "www.example.com -> example.com" 
 
 <IfModule mod_rewrite.c>
   RewriteCond %{HTTPS} !=on
@@ -331,7 +336,7 @@ FileETag None
 # ----------------------------------------------------------------------
 
 # Option 2:
-# To rewrite "domain.com -> www.domain.com" uncomment the following lines.
+# To rewrite "example.com -> www.example.com" uncomment the following lines.
 # Be aware that the following rule might not be a good idea if you
 # use "real" subdomains for certain parts of your website.
 
@@ -369,7 +374,7 @@ FileETag None
 # ----------------------------------------------------------------------
 
 # Rewrite secure requests properly to prevent SSL cert warnings, e.g. prevent 
-# https://www.domain.com when your cert only allows https://secure.domain.com
+# https://www.example.com when your cert only allows https://secure.example.com
 # Uncomment the following lines to use this feature.
 
 # <IfModule mod_rewrite.c>
@@ -407,7 +412,7 @@ ErrorDocument 404 /404.html
 AddDefaultCharset utf-8
 
 # Force UTF-8 for a number of file formats
-AddCharset utf-8 .html .css .js .xml .json .rss
+AddCharset utf-8 .html .css .js .xml .json .rss .atom
 
 
 
@@ -471,6 +476,7 @@ Options -Indexes
 # php_flag display_startup_errors Off
 
 # Format errors in plain text
+# Note: Leave this setting 'On' for xdebug's var_dump() output
 # php_flag html_errors Off
 
 # Show multiple occurrence of error
@@ -492,4 +498,3 @@ Options -Indexes
 <IfModule php5_module>
 	php_value session.cookie_httponly true
 </IfModule>
-

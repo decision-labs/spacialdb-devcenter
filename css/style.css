@@ -4,15 +4,18 @@
  * What follows is the result of much research on cross-browser styling. 
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
+ *
+ * Detailed information about this CSS: h5bp.com/css
  */
 
 
 /* =============================================================================
-   HTML5 element display
+   HTML5 display definitions
    ========================================================================== */
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
-audio[controls], canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
 
 
 /* =============================================================================
@@ -133,15 +136,15 @@ figure { margin: 0; }
 form { margin: 0; }
 fieldset { border: 0; margin: 0; padding: 0; }
 
+/* Indicate that 'label' will shift focus to the associated form element */
+label { cursor: pointer; }
+
 /* 
  * 1. Correct color not inheriting in IE6/7/8/9 
  * 2. Correct alignment displayed oddly in IE6/7 
  */
 
 legend { border: 0; *margin-left: -7px; padding: 0; }
-
-/* Indicate that 'label' will shift focus to the associated form element */
-label { cursor: pointer; }
 
 /*
  * 1. Correct font-size not inheriting in all browsers
@@ -159,6 +162,12 @@ button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: ba
 button, input { line-height: normal; *overflow: visible; }
 
 /*
+ * Reintroduce inner spacing in 'table' to avoid overlap and whitespace issues in IE6/7
+ */
+
+table button, table input { *overflow: auto; }
+
+/*
  * 1. Display hand cursor for clickable form elements
  * 2. Allow styling of clickable form elements in iOS
  */
@@ -170,7 +179,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"] { cursor
  */
 
 input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
-input[type="search"] { -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
 
 /* 
  * Remove inner padding and border in FF3/4
@@ -179,8 +189,12 @@ input[type="search"] { -moz-box-sizing: content-box; -webkit-box-sizing: content
 
 button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
 
-/* Remove default vertical scrollbar in IE6/7/8/9 */
-textarea { overflow: auto; vertical-align: top; }
+/* 
+ * 1. Remove default vertical scrollbar in IE6/7/8/9 
+ * 2. Allow only vertical resizing
+ */
+
+textarea { overflow: auto; vertical-align: top; resize: vertical; }
 
 /* Colors for form validity */
 input:valid, textarea:valid {  }
@@ -342,11 +356,12 @@ pre code, pre tt {
    ========================================================================== */
 
 /* For image replacement */
-.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .ir br { display: none; }
 
 /* Hide for both screenreaders and browsers:
    css-discuss.incutio.com/wiki/Screenreader_Visibility */
+[hidden] { display: none; visibility: hidden; }
 .hidden { display: none; visibility: hidden; }
 
 /* Hide only visually, but have it available for screenreaders: by Jon Neal.
