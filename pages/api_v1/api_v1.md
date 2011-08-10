@@ -4,7 +4,7 @@
 ## Table of contents:
 
 * [API Overview](#api_overview)
-* [Layers resource](#layers_resource)
+* [Layer resource](#layer_resource)
 * [Publish a feature for a given layer](#create_feature)
 * [Update a feature of a layer with given id](#update_feature)
 * [Delete a feature from a layer given the feature id](#delete_feature)
@@ -28,8 +28,8 @@ This describes the resources that make up the official SpacialDB API v1. If you 
 
 ---
 
-<div name='layers_resource'></div>
-## Layers resource 
+<div name='layer_resource'></div>
+## Layer resource 
 The Layer resource maps to a SpacialDB table. It can store geospatial features and key-value attributes.
 
 ---
@@ -99,11 +99,11 @@ PUT /users/:user/layers/:layername/:id?key=<accesKey>
 ###Input:
 
 * **geometry**
- * Optional GeoJSON Geometry Object
+  * Optional GeoJSON Geometry Object
 * **properties**
- * Optional JSON OBject
+  * Optional JSON OBject
 * **key**
- * Required _String_, access key for your account/layer
+  * Required _String_, access key for your account/layer
 
 Requires at least one of the above.
 
@@ -140,9 +140,7 @@ DELETE /users/:user/layers/:layername/:id?key=<accessKey>
 
 ####Input:
 * **key**
- * Required _String_, access key for your account/layer
-
-###Body:
+  * Required _String_, access key for your account/layer
 
 ###Response:
 
@@ -168,7 +166,7 @@ GET /users/:user/layers/:layername?key=<accessKey>
 
 ###Input:
 * **key**
- * Required _String_, access key for your account/layer
+  * Required _String_, access key for your account/layer
 
 ###Response:
 
@@ -216,7 +214,7 @@ GET /users/:user/layers/:layername/:id?key=<accessKey>
 
 ###Input:
 * **key**
- * Required _String_, access key for your account/layer
+  * Required _String_, access key for your account/layer
 
 Supports all [extended request options](#extended_request_options).
 
@@ -260,9 +258,10 @@ GET /users/:user/layers/:layername/:id?key=<accessKey>&attr=id,properties
 
 ###Input:
 * **key**
- * Required _String_, access key for your account/layer
+  * Required _String_, access key for your account/layer
 * **attr**
- * Required
+  * Required
+
 ###Response:
 
 ####Code:
@@ -297,8 +296,6 @@ GET /users/:user/layers/:layername/:id?key=<accessKey>&attr=id,properties
 GET /users/:user/layers/:layername?key=<accessKey>&attr=id,properties
 ```
 
-###Body:
-
 ###Return:
 
 ####Code:
@@ -306,7 +303,6 @@ GET /users/:user/layers/:layername?key=<accessKey>&attr=id,properties
 ```bash
 200 - OK
 ```
-
 
 ####Body:
 
@@ -341,15 +337,15 @@ GET /users/:user/layers/:layername?key=<accessKey>&attr=id,properties
 ###Url:
 
 ```bash
-POST /users/:user/layers/:layername/functions/intersects?key=<accessKey>
+GET /users/:user/layers/:layername/functions/intersects?key=<accessKey>&input=<geometry>
 ```
 
 ###Input:
 
 * **key**
- * Required _String_, access key for your account/layer
-* **geometry**
- * Required GeoJSON Geometry in the body
+  * Required _String_, access key for your account/layer
+* **input**
+  * Required JSON containing a GeoJSON Geometry in the body, as follows:
 
 ```javascript
 {
@@ -364,7 +360,6 @@ POST /users/:user/layers/:layername/functions/intersects?key=<accessKey>
 ```bash
 200 - OK
 ```
-
 
 ####Body:
 
@@ -397,14 +392,16 @@ POST /users/:user/layers/:layername/functions/intersects?key=<accessKey>
 
 ###Url:
 
-    POST /users/:user/layers/:layername/functions/st_within?key=<accessKey>
+```bash
+GET /users/:user/layers/:layername/functions/st_within?key=<accessKey>&input=<geometry>
+```
 
 ###Input:
 
 * **key**
- * Required _String_, access key for your account/layer
-* **geometry**
- * Required GeoJSON Geometry in the body
+  * Required _String_, access key for your account/layer
+* **input**
+  * Required JSON containing a GeoJSON Geometry in the body, as follows:
 
 ```javascript
 {
@@ -419,7 +416,6 @@ POST /users/:user/layers/:layername/functions/intersects?key=<accessKey>
 ```bash
 200 - OK
 ```
-
 
 ####Body:
 
@@ -453,17 +449,19 @@ POST /users/:user/layers/:layername/functions/intersects?key=<accessKey>
 ###Url:
 
 ```bash
-POST /users/:user/layers/:layername?key=<accessKey>
+GET /users/:user/layers/:layername?key=<accessKey>&input=<url-encoded-JSON>
 ```
 
 ###Input:
 
 * **key**
- * Required _String_, access key for your account/layer
-* **operator**
- * Required _Key-Value-Pair_ which defines the operator to combine the properties. Valid values are be _or_ or _and_.
-* **properties**
- * Requried _Object properties with Key-Value-Pairs_ which will be part of the WHERE condition
+  * Required _String_, access key for your account/layer
+
+* **input** This parameter is a URL encoded JSON object with the following attributes:
+  * **operator**
+    * Required _Key-Value-Pair_ which defines the operator to combine the properties. Valid values are be _or_ or _and_.
+  * **properties**
+    * Requried _Object properties with Key-Value-Pairs_ which will be part of the WHERE condition
 
 ```javascript
 {
@@ -482,7 +480,6 @@ POST /users/:user/layers/:layername?key=<accessKey>
 ```bash
 200 - OK
 ```
-
 
 ####Body:
 
@@ -514,18 +511,18 @@ POST /users/:user/layers/:layername?key=<accessKey>
 ## Get all features sorted by a property key
 
 * **key**
- * Required _String_, access key for your account/layer
+  * Required _String_, access key for your account/layer
 * **sort**
- * Required _String_ which enables sorting
+  * Required _String_ which enables sorting
 * **order**
- * Required _String_ which defines the order of the sorting. Could be _asc_ or _desc_.
+  * Required _String_ which defines the order of the sorting. Could be _asc_ or _desc_.
 * **sorton**
- * Required _String_ which defines the property key we sort on.
+  * Required _String_ which defines the property key we sort on.
 
 ###Url:
 
 ```bash
-POST /users/:user/layers/:layername?key=<accessKey>&sort
+GET /users/:user/layers/:layername?key=<accessKey>&sort
 ```
 
 ###Body:
@@ -593,9 +590,9 @@ GET /users/:user/layer/:layername?key=<accessKey>&count
 ###Input:
 
 * **key**
- * Required _String_, access key for your account/layer
+  * Required _String_, access key for your account/layer
 * **count**
- * Required, enables counting.
+  * Required, enables counting.
 
 ###Response:
 
