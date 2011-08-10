@@ -8,6 +8,16 @@
 * [Publish a feature for a given layer](#create_feature)
 * [Update a feature of a layer with given id](#update_feature)
 * [Delete a feature from a layer given the feature id](#delete_feature)
+* [Get the all features in a layer](#get_all_layer_features)
+* [Get a feature of a layer by id](#get_feature)
+* [Get a single feature with only the requested attributes](#get_feature_attr)
+* [Get a collection of features with only the requested attributes](#get_features_attr)
+* [Get all features intersecting a given geometry](#get_features_intersection)
+* [Get all features within (inclusion) given geometry](#get_features_within)
+* [Get all features with the given properties](#get_features_by_props)
+* [Get all features sorted by a property key](#get_features_sorted)
+* [Count the features in a collection/layer](#count_features)
+
 
 ---
 
@@ -115,6 +125,8 @@ Requires at least one of the above.
 204 - NO CONTENT
 ```
 
+[Back to Table of Contents](#toc)
+
 ---
 
 <div name='delete_feature'></div>
@@ -140,6 +152,8 @@ DELETE /users/:user/layers/:layername/:id?key=<accessKey>
 204 - NO CONTENT
 ```
 
+[Back to Table of Contents](#toc)
+
 ---
 
 <div name='get_all_layer_features'></div>
@@ -164,7 +178,6 @@ GET /users/:user/layers/:layername?key=<accessKey>
 200 - OK
 ```
 
-
 ####Body:
 
 ```javascript
@@ -188,8 +201,9 @@ GET /users/:user/layers/:layername?key=<accessKey>
 }
 ```
 
----
+[Back to Table of Contents](#toc)
 
+---
 
 <div name='get_feature'></div>
 ## Get a feature of a layer by id
@@ -214,7 +228,6 @@ Supports all [extended request options](#extended_request_options).
 200 - OK
 ```
 
-
 ####Body:
 
 ```javascript
@@ -232,11 +245,11 @@ Supports all [extended request options](#extended_request_options).
 }
 ```
 
+[Back to Table of Contents](#toc)
+
 ---
 
-
 <div name='get_feature_attr'></div>
-
 ## Get a single feature with only the requested attributes e.g. the id, properties
 
 ###Url:
@@ -271,8 +284,11 @@ GET /users/:user/layers/:layername/:id?key=<accessKey>&attr=id,properties
 }
 ```
 
+[Back to Table of Contents](#toc)
+
 ---
 
+<div name='get_features_attr'></div>
 ## Get a collection of features with only the requested attributes e.g. id, properties
 
 ###Url:
@@ -315,9 +331,12 @@ GET /users/:user/layers/:layername?key=<accessKey>&attr=id,properties
 }
 ```
 
+[Back to Table of Contents](#toc)
+
 ---
 
-## Get all features intersecting with the given geometry
+<div name='get_features_intersection'></div>
+## Get all features intersecting a given geometry
 
 ###Url:
 
@@ -369,8 +388,11 @@ POST /users/:user/layers/:layername/functions/intersects?key=<accessKey>
 }
 ```
 
+[Back to Table of Contents](#toc)
+
 ---
 
+<div name='get_features_within'></div>
 ## Get all features within (inclusion) given geometry
 
 ###Url:
@@ -421,9 +443,12 @@ POST /users/:user/layers/:layername/functions/intersects?key=<accessKey>
 }
 ```
 
+[Back to Table of Contents](#toc)
+
 ---
 
-##Get all features with the given properties
+<div name='get_features_by_props'></div>
+## Get all features with the given properties
 
 ###Url:
 
@@ -481,6 +506,8 @@ POST /users/:user/layers/:layername?key=<accessKey>
 }
 ```
 
+[Back to Table of Contents](#toc)
+
 ---
 
 <div name='get_features_sorted'></div>
@@ -494,7 +521,6 @@ POST /users/:user/layers/:layername?key=<accessKey>
  * Required _String_ which defines the order of the sorting. Could be _asc_ or _desc_.
 * **sorton**
  * Required _String_ which defines the property key we sort on.
-
 
 ###Url:
 
@@ -551,6 +577,8 @@ POST /users/:user/layers/:layername?key=<accessKey>&sort
 }
 ```
 
+[Back to Table of Contents](#toc)
+
 ---
 
 <div name='count_features'></div>
@@ -585,6 +613,8 @@ GET /users/:user/layer/:layername?key=<accessKey>&count
 }
 ```
 
+[Back to Table of Contents](#toc)
+
 ---
 
 <div name='extended_request_options'></div>
@@ -603,4 +633,6 @@ Extended request options let you do more fine tuned requests by supporting param
 ## Counting
 
 * [Count the features in a collection/layer](#count_features)
+
+[Back to Table of Contents](#toc)
 
