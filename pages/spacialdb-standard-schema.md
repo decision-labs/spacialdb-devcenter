@@ -1,0 +1,3 @@
+# SpacialDB Standard Schema
+
+...
