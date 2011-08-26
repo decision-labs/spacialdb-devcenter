@@ -26,10 +26,20 @@
 
 This describes the resources that make up the official SpacialDB API v1. If you have any problems please contact [support](mailto:info@spacialdb.com?subject=API+Support). SpacialDB has a RESTful query API that let you perform Create, Read, Update and Delete operations on you core Geospatial Layers. These layers need to conform to SpacialDB's standard schema. More details on standard schema can be found at [[spacialdb standard schema]] page.
 
+## URL
+
+You can reach version 1.0 of the API via http
+
+    http://api.spacialdb.com/1/
+
+or via https
+
+    https://api.spacialdb.com/1/
+
 ---
 
 <div name='layer_resource'></div>
-## Layer resource 
+## Layer resource
 The Layer resource maps to a SpacialDB table. It can store geospatial features and key-value attributes.
 
 ---
@@ -162,7 +172,7 @@ DELETE /users/:user/layers/:layername/:id?key=<accessKey>
 ```bash
 GET /users/:user/layers/:layername?key=<accessKey>
 ```
-  
+
 
 ###Input:
 * **key**
@@ -393,7 +403,7 @@ GET /users/:user/layers/:layername/functions/intersects?key=<accessKey>&input=<g
 ###Url:
 
 ```bash
-GET /users/:user/layers/:layername/functions/st_within?key=<accessKey>&input=<geometry>
+GET /users/:user/layers/:layername/functions/within?key=<accessKey>&input=<geometry>
 ```
 
 ###Input:
