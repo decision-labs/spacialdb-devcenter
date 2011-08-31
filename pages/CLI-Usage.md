@@ -15,7 +15,7 @@ Additional topics:
   help     # list commands and display help
   version  # version
 ```
-
+<div name='authentication'></div>
 ## Authentication Commands
 
 The `signup` command simply signs you up to a free plan:
@@ -45,6 +45,7 @@ kashif@spacialdb.com
 
 The `logout` command will remove your credential file.
 
+<div name='database_management'></div>
 ## Database Management Commands
 
 To create a geospatial database simply run:
@@ -59,7 +60,7 @@ which will return the connection string to a new geospatial database.
 The `db` command then prints out the connection settings for all your databases:
 
 ```console
-$ spacialdb db       
+$ spacialdb db
 {"username"=>"krasul", "user_id"=>4, "password"=>"mypasswd", "host"=>"beta.spacialdb.com", "updated_at"=>"2011-08-26 12:38:49 +0000", "created_at"=>"2011-08-26 12:38:49 +0000", "name"=>"spacialdb2_krasul", "port"=>9999, "id"=>99}
 {"username"=>"krasul", "user_id"=>4, "password"=>"mypasswd", "host"=>"beta.spacialdb.com", "updated_at"=>"2011-05-25 14:37:41 +0000", "created_at"=>"2011-05-25 14:37:41 +0000", "name"=>"spacialdb0_krasul", "port"=>9999, "id"=>23}
 {"username"=>"krasul", "user_id"=>4, "password"=>"mypasswd", "host"=>"beta.spacialdb.com", "updated_at"=>"2011-07-04 09:20:24 +0000", "created_at"=>"2011-07-04 09:20:24 +0000", "name"=>"spacialdb1_krasul", "port"=>9999, "id"=>71}
@@ -77,7 +78,7 @@ $ spacialdb db:destroy --db spacialdb2_krasul
 > spacialdb2_krasul
 Destroying spacialdb2_krasul ... done
 ```
-
+<div name='api_layer_management'></div>
 ## API Layer Management Commands
 
 If you plan to use the SpacialDB API then you will need to create a Layer which will also provide you keys for the different CRUD operations on the layer.
@@ -95,7 +96,7 @@ You can also give specify the `table_name` of this layer in your database with t
 To get information about a particular layer simply type:
 
 ```console
-$ spacialdb layers:info parks                      
+$ spacialdb layers:info parks
 {"user_id"=>4, "srid"=>4326, "table_name"=>"parks", "database"=>"spacialdb0_krasul", "name"=>"parks", "id"=>19, "acl"=>{"get"=>"32166ddfd2738bd9f6ce2a3ca221d926", "delete"=>"1c960a75518cb1d5d8bddcdb8d2a8613", "post"=>"35b419a11dae739eaf2593e589fe140a", "put"=>"b529d93463b67e4551e82ea314e4b1e4"}}
 ```
 
