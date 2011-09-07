@@ -9,4 +9,4 @@ Thus SpacialDB `Standard Schema` abstracts the complexity of storing and queryin
 
       /users/:user/layers/:layername?key=<accessKey>
 
-In cases where geospatial data is returned the response is in `GeoJSON`. Check out this [quick and dirty map](http://bit.ly/qoPcMY) thrown together using the API and Standard Schema Layer.
+In cases where geospatial data is returned the response is in `GeoJSON`. Check out this [quick and dirty map](http://jsfiddle.net/sabman/n85Qr/12/) thrown together using the API and Standard Schema Layer.
