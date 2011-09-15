@@ -97,7 +97,7 @@ Define a model which gets mapped into the database. To do so, edit `places/model
 
 ```python
 # use the extended models from geodjango
-import models from django.contrib.gis.db
+from django.contrib.gis.db import models
 
 class Place(models.Model):
     tag = models.CharField(max_length=250) # just a string
