@@ -8,4 +8,4 @@
 * Reference
   * [[Command Line]]
   * [[Mobile SDKs]]
-  * [[SpacialDB Layer API]]
+  * [[Layers API]]

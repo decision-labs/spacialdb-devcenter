@@ -9,18 +9,18 @@ SpacialDB is a cloud based Geospatial database.
    [1]: http://www.spacialdb.com (SpacialDB)
 
 ## New Articles
-* [[SpacialDB API|api_v1]]
-* [[SpacialDB API layer management | CLI-Usage#api_layer_management]]
-* [[SpacialDB Standard Schema]]
+* [[Layers API v1 Documentation]]
+* [[Layers API layer management | CLI-Usage#api_layer_management]]
+* [[Standard Schema]]
 
 ## Recommended Articles
 
 ### The basics
 
 * [[CLI Usage]]
-* [[SpacialDB API|api_v1]]
-* [[SpacialDB API layer management | CLI-Usage#api_layer_management]]
-* [[SpacialDB Standard Schema]]
+* [[Layers API v1 Documentation]]
+* [[Layers API layer management | CLI-Usage#api_layer_management]]
+* [[Standard Schema]]
 
 ### Walk throughs
 
@@ -30,6 +30,6 @@ SpacialDB is a cloud based Geospatial database.
 
 ## Popular Articles
 
-* [[SpacialDB API|api_v1]]
-* [[SpacialDB API layer management | CLI-Usage#api_layer_management]]
-* [[SpacialDB Standard Schema]]
+* [[Layers API v1 Documentation]]
+* [[Layers API management | CLI-Usage#api_layer_management]]
+* [[Standard Schema]]

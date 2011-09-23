@@ -1,4 +1,4 @@
-SpacialDB provides a very convenient and highly optimised JSON and JSONP [[REST API | api_v1]] for accessing you spatial data. This is done via the SpacialDB standard schema. We recomment reading the following
+SpacialDB provides a very convenient and highly optimised JSON and JSONP [[REST API | Layers API v1 Documentation]] for accessing you spatial data. This is done via the SpacialDB standard schema. We recomment reading the following
 
 ## Articles
 
