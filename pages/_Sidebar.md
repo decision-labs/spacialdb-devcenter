@@ -8,5 +8,4 @@
 * Reference
   * [[Command Line]]
   * [[Mobile SDKs]]
-  * [[SpacialDB API|api_v1]]
-  * [[SpacialDB Standard Schema]]
+  * [[SpacialDB Layer API]]
