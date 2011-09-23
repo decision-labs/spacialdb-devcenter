@@ -1,4 +1,3 @@
-# API v1
 
 <div name='toc'></div>
 ## Table of contents:
@@ -24,7 +23,7 @@
 <div name='api_overview'></div>
 # API Overview
 
-This describes the resources that make up the official SpacialDB API v1. If you have any problems please contact [support](mailto:info@spacialdb.com?subject=API+Support). SpacialDB has a RESTful query API that let you perform Create, Read, Update and Delete operations on you core Geospatial Layers. These layers need to conform to SpacialDB's standard schema. More details on standard schema can be found at [[spacialdb standard schema]] page.
+This describes the resources that make up the official SpacialDB API v1. If you have any problems please contact [support](mailto:info@spacialdb.com?subject=API+Support). SpacialDB has a RESTful query API that let you perform Create, Read, Update and Delete operations on you core Geospatial Layers. These layers need to conform to SpacialDB's standard schema. More details on standard schema can be found at [[standard schema]] page.
 
 ## URL
 
