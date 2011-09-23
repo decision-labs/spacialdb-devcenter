@@ -15,6 +15,12 @@ SpacialDB is a cloud based Geospatial database.
 
 ## Recommended Articles
 
+### Walk throughs
+
+* [[Importing OpenStreetMap data into SpacialDB | Import-OSM]]
+* [[Using SpacialDB as a Heroku addon|Heroku]]
+* [[Learn to quickly import geospatial data and view a map|Instant Map]]
+
 ### The basics
 
 * [[CLI Usage]]
@@ -22,14 +28,8 @@ SpacialDB is a cloud based Geospatial database.
 * [[Layers API layer management | CLI-Usage#api_layer_management]]
 * [[Standard Schema]]
 
-### Walk throughs
-
-* [[Importing OpenStreetMap data into SpacialDB | Import-OSM]]
-* [[Using SpacialDB as a Heroku addon|Heroku]]
-* [[Learn to quickly import geospatial data and view a map|Instant Map]]
-
 ## Popular Articles
 
-* [[Layers API v1 Documentation]]
-* [[Layers API management | CLI-Usage#api_layer_management]]
-* [[Standard Schema]]
+## Also see
+
+* [SpacialDB Blog](http://blog.spacialdb.com)

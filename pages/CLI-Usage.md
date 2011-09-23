@@ -143,7 +143,7 @@ $ curl -X POST -d \
 
 By default the layer name will also be the name of a corrsponding SpacialDB table. You can override this and specify your own `table_name` of a layer in your database with the `--tablename` option. You can also override the `srid` with the `--srid` option.
 
-For more details on the Layers API see the [[Layers API v1 Documentation]] and [[SpacialDB API Recipes|api-v1-recipes]].
+For more details on the Layers API see the [[Layers API v1 Documentation]] and [[Layers API v1 Recipes]].
 
 <div name='api_layer_info'></div>
 ### Layer info
