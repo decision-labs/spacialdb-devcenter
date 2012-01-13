@@ -1,0 +1,10 @@
+_site
+.DS_Store
+*.rbc
+*.tmproj
+*~
+*.swp
+.rvmrc
+Gemfile
+Gemfile.lock
+
