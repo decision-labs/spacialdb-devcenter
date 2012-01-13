@@ -7,4 +7,6 @@ _site
 .rvmrc
 Gemfile
 Gemfile.lock
+README.md
+Rakefile
 

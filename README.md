@@ -25,7 +25,7 @@ Treat this documentation like any code repository. If you have a minor addition 
 
 4. Make your changes in markdown using your favourite editor. To view your edits run the following command and go to [localhost:8000][localhost]:
 
-        gollum-site serve --watch
+        bundle exec gollum-site serve --watch
 
 
 5. Run the specs and fix any formatting issues
