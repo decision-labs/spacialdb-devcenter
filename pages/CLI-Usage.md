@@ -1,3 +1,5 @@
+# SpacialDB Command Line Interface Documentation
+
 Running `spacialdb help` displays the following usage summary:
 
 ```console

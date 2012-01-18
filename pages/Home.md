@@ -1,3 +1,5 @@
+# Home
+
 ## What is SpacialDB?
 
 SpacialDB is a cloud based Geospatial database.
