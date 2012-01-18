@@ -11,6 +11,7 @@ SpacialDB is a cloud based Geospatial database.
    [1]: http://www.spacialdb.com (SpacialDB)
 
 ## New Articles
+* [[Importing SimpleGEO data into SpacialDB | Import-SimpleGEO]]
 * [[Layers API v1 Documentation]]
 * [[Layers API layer management | CLI-Usage#api_layer_management]]
 * [[Standard Schema]]

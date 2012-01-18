@@ -1,6 +1,6 @@
 # Importing SimpleGEO data into SpacialDB
 
-Thanks to SpacialDB' Layers API you can import all your data into SpacialDB, including Polygons and Lines by following this two step process:
+Thanks to SpacialDB's Layers API you can import all your data into SpacialDB, including Polygons and Lines, by following this two step process:
 
 ## Prerequisites
 
@@ -19,8 +19,7 @@ Successfully installed launchy-2.0.5
 Successfully installed spacialdb-0.0.3
 5 gems installed
 
-# Only if you haven't signed up already
-$ spacialdb signup
+$ spacialdb signup # Only if you haven't signed up already
 Sign up to Spacialdb.
 Email:...
 ```
@@ -40,7 +39,7 @@ $ spacialdb create
 {"name":"aetskhmm_krasul","port":9999,"username":"aetskhmm_krasul","host":"beta.spacialdb.com","password":"blah"}
 ```
 
-## Get the import script
+## Get the Import Script
 
 ```console
 $ wget https://raw.github.com/gist/1633494/migrate-simplegeo-to-spacialdb.rb
