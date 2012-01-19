@@ -114,7 +114,7 @@ https://api.spacialdb.com/1/users/krasul/layers/io_path_testlayer?key=3fa5127715
 
 This should also open up your browser for each imported layer and it should look something like:
 
-```json
+```javascript
 {
    "type":"FeatureCollection",
    "features":[
