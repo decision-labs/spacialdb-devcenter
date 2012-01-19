@@ -1,6 +1,6 @@
 # Importing SimpleGEO data into SpacialDB
 
-Thanks to SpacialDB's Layers API you can import all your data into SpacialDB, including Polygons and Lines, by following this two step process:
+Thanks to SpacialDB's [[Layers API|Layers-API]] you can import all your SimpleGEO Storage Layers into SpacialDB, including Polygons and Lines, by following this two step process. In addition if you have access to SimpleGEO's Places, Context and Features API, you could also import this data into SpacialDB. Check the bottom for some suggestions on doing this.
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ For the SpacialDB API login and key check you `~/.spacialdb/credentials` file an
 
 ```console
 $ spacialdb list
-{"username"=>"aetskhmm_krasul", "password"=>"blahblah", "host"=>"beta.spacialdb.com", "name"=>"aetskhmm_krasul", "port"=>9999, "connection_string"=>"postgres://aetskhmm_krasul:a20e8a6b@beta.spacialdb.com:9999/aetskhmm_krasul"}
+{"username"=>"aetskhmm_krasul", "password"=>"blahblah", "host"=>"beta.spacialdb.com", "name"=>"aetskhmm_krasul", "port"=>9999, "connection_string"=>"postgres://aetskhmm_krasul:blahblah@beta.spacialdb.com:9999/aetskhmm_krasul"}
 ```
 
 ## Run the script!
@@ -185,3 +185,19 @@ This should also open up your browser for each imported layer and it should look
    ]
 }
 ```
+
+## SimpleGEO Features
+
+SimpleGEO features are available for free and so one could potentially import this data into SpacialDB as well since the API calls return a valid GeoJSON given a SimpleGEO `handle`.
+
+## SimpleGEO Context
+
+SimpleGEO Context returns data about a Location, Address, IP or Bounding Box and the  response contains a `bounds` key  which could potentially be converted to a `polygon` and sent to SpacialDB, together with the contextual data.
+
+## SimpleGEO Places
+
+SimpleGEO Places returns near-by POIs as a GeoJSON `FeatureCollection` which can easily be imported into SpacialDB just like the Layers.
+
+## Challenge
+
+Potentially someone with access to this data could easily import everything into SpacialDB and create a [[Heroku API server|Heroku]] to simply replace the SimpleGEO APIs transparently. We are happy to help anyone do this if they need it. Just leave a comment below.
