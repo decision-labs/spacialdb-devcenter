@@ -2,11 +2,13 @@
 
 This repo holds the content to the SpacialDB [devcenter.spacialdb.com][dev-center].
 
-We are using [Gollum][gollum] and [Gollum-Site][gol-site] to generate this site and to make it easier for people to contribute.
+We are using [Gollum][gollum], [Gollum-Site][gol-site] and [Pygments][pygments-site] to generate this site and make it easier for people to contribute. Before contributing do make sure you have Pygments installed:
+
+        easy_install Pygments
 
 ## How to Contribute
 
-Treat this documentation like any code repository. If you have a minor addition or fix, then select the particular file and press the 'Fork and edit file' button. For something entirely new you can:
+Treat this documentation like any `ruby` code repository. If you have a minor addition or fix, then select the particular file and press the 'Fork and edit file' button in Github. For something entirely new you can:
 
 1. [Fork this repo][spacialdb-devcenter]
 
@@ -23,19 +25,21 @@ Treat this documentation like any code repository. If you have a minor addition 
         git checkout -b <branch-name>
 
 
-4. Make your changes in markdown using your favourite editor. To view your edits run the following command and go to [localhost:8000][localhost]:
+4. Make your changes in [Markdown][markdown] using your favourite editor. To view your edits run the following command and go to [localhost:8000][localhost]:
 
-        bundle exec gollum-site serve --watch
+        bundle exec gollum-site --watch --working serve
 
 
-5. Run the specs and fix any formatting issues
+5. Run the specs and fix any formatting issues:
 
         rake spec
 
-6. Push and send us a pull request
+6. Commit, Push and send us a Pull request.
 
 [dev-center]: http://devcenter.spacialdb.com
 [spacialdb-devcenter]: https://github.com/spacialdb/spacialdb-devcenter
 [gollum]:     https://github.com/github/gollum "Gollum Repo"
 [gol-site]:   https://github.com/dreverri/gollum-site "Gollum-Site Repo"
+[pygments]: http://pygments.org/ "Pygments a generic syntax highlighter"
+[markdown]: http://daringfireball.net/projects/markdown/ "Markdown"
 [localhost]: http://localhost:8000 "Gollum-site frontend"
