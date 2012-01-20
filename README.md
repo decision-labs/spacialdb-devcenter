@@ -40,6 +40,6 @@ Treat this documentation like any `ruby` code repository. If you have a minor ad
 [spacialdb-devcenter]: https://github.com/spacialdb/spacialdb-devcenter
 [gollum]:     https://github.com/github/gollum "Gollum Repo"
 [gol-site]:   https://github.com/dreverri/gollum-site "Gollum-Site Repo"
-[pygments]: http://pygments.org/ "Pygments a generic syntax highlighter"
+[pygments-site]: http://pygments.org/ "Pygments a generic syntax highlighter"
 [markdown]: http://daringfireball.net/projects/markdown/ "Markdown"
 [localhost]: http://localhost:8000 "Gollum-site frontend"
