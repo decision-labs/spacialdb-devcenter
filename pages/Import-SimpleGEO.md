@@ -57,10 +57,9 @@ Saving to: `migrate-simplegeo-to-spacialdb.rb'
 
 ## Add SimpleGEO and SpacialDB credentials
 
-Open the file and add your SimpleGEO credentials:
+Edit the `migrate-simplegeo-to-spacialdb.rb` file and add your SimpleGEO and SpacialDB credentials:
 
-```console
-$ head -14 migrate-simplegeo-to-spacialdb.rb
+```ruby
 # ================================================================================
 # Modify to add you SimpleGeo credentials:
 # Adapt the following to your SimpleGeo credentials. Get it from the Simplegeo UI.
