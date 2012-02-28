@@ -4,7 +4,7 @@ This repo holds the content to the SpacialDB [devcenter.spacialdb.com][dev-cente
 
 We are using [Gollum][gollum], [Gollum-Site][gol-site] and [Pygments][pygments-site] to generate this site and make it easier for people to contribute. Before contributing do make sure you have Pygments installed:
 
-        easy_install Pygments
+    easy_install Pygments
 
 ## How to Contribute
 
