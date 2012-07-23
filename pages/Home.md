@@ -33,6 +33,3 @@ SpacialDB is a cloud based Geospatial database.
 
 ## Popular Articles
 
-## Also see
-
-* [SpacialDB Blog](http://blog.spacialdb.com)
