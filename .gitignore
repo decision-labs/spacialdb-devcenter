@@ -4,5 +4,4 @@ _site
 *.tmproj
 *~
 *.swp
-Gemfile.lock
 
