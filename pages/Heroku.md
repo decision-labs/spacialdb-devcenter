@@ -9,7 +9,7 @@ SpacialDB is a cloud based Geospatial database.
 
 [SpacialDB][1] is a Geospatial database service that allows you to create, operate and scale dedicated Geospatial databases in the cloud. Your SpacialDB databases can be used transparently in place of the Heroku-provided PostgreSQL database.
 
-   [1]: http://www.spacialdb.com (SpacialDB)
+   [1]: https://www.spacialdb.com (SpacialDB)
 
 
 ## Deploying to Heroku
@@ -18,6 +18,10 @@ To use SpacialDB on Heroku, make sure that you have a database provisioned with 
 
 ```console
 $ heroku login
+Enter your Heroku credentials.
+Email: kashif.rasul@gmail.com
+Password (typing will be hidden):
+Authentication successful.
 ...
 ```
 
@@ -36,7 +40,7 @@ In order to deploy a Rails app to Heroku which uses Postgis for its database via
 
 
 
-### Rails app (the server)
+### Rails 3.2 app (the server)
 
 We create a new app with:
 
@@ -48,7 +52,7 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 $ cd geo-photo
 ```
 
-To begin with we need to add a Heroku specific configuration in `config/application.rb` and then we can check it in and login to Heroku to deploy it:
+To begin with we need to add a Heroku specific configuration in `config/application.rb` and then we can check it in and deploy it:
 
 ```console
 $ cat config/application.rb
@@ -61,11 +65,6 @@ $ git init
 $  git add .
 $  git commit -m "Initial commit"
 ...
-$ heroku login
-Enter your Heroku credentials.
-Email: kashif.rasul@gmail.com
-Password (typing will be hidden):
-Authentication successful.
 ```
 
 Now we are ready to deploy our initial empty app by first creating it and then pushing it:
@@ -90,9 +89,9 @@ $ heroku open
 
 Now we are ready to add the RGeo gem in order to use the Postgis adapter with Rails. RGeo requires [Geos](http://geos.osgeo.org/) and [Proj](http://trac.osgeo.org/proj/) to be installed on the system we are deploying on.
 
-So one solution is to install precompiled binary libraries with the `vendorbinaries` buildpack together with the default Heroku Ruby buildpack. In order to use these two buildpacks, we will use the `buildpack-multi`. Have a look at this blog post: [Building and Deploying Custom Binaries on Heroku](http://spin.atomicobject.com/2012/12/09/building-and-deploying-custom-binaries-on-heroku/) for more info.
+So one solution is to install these precompiled  dependencies with the `vendorbinaries` buildpack together with the default Heroku Ruby buildpack. In order to use these two buildpacks, we will use the `buildpack-multi`. Have a look at this blog post: [Building and Deploying Custom Binaries on Heroku](http://spin.atomicobject.com/2012/12/09/building-and-deploying-custom-binaries-on-heroku/) for more information.
 
-Finally the `vendorbinaries` buildpack requires a url to download the binaries from, and we have provided the latest Proj (4.8.0) and Geos (3.3.8) binaries via a public S3 bucket.
+Lastly, the `vendorbinaries` buildpack requires a url to download the binaries from, and we have provided the latest Proj (4.8.0) and Geos (3.3.8) binaries compiled on the [Heroku platform](https://devcenter.heroku.com/articles/buildpack-binaries) via a public Amazon S3 bucket.
 
 So lets get started, first the `buildpack-multi`, we configure heroku to use it and add the buildpacks we use in the `.buildpacks` file:
 
@@ -125,7 +124,7 @@ $ git push heroku master
 ...
 ```
 
-Now we are ready to add the RGeo gem. However there is one complication, the location of the libraries is not in any default location, so we need to let the `gem` command know the exact location which in our case is the root of our app: `/app`. So we use bunder to pass the specify flags to this one specific gem namerly: Rgeo. Normally we would do `gem install rgeo -- --with-geos-dir=/app --with-proj-dir=/app` but thats not possible on Heroku. So can add the following config to our app which will let bundler know the options when installing the Rgeo gem:
+Now we are ready to add the RGeo gem. However there is one complication, the libraries are extracted in a non-default location. So we need to let the `gem` command know the exact location, which in our case is the root of our app: `/app`.  Normally we would do `gem install rgeo -- --with-geos-dir=/app --with-proj-dir=/app` but thats not possible on Heroku. So we use `bundle` to pass the specify flags to this one gem namerly: Rgeo. We can add the following config to our app which will let the `bundle` command know the options when installing the Rgeo gem:
 
 ```console
 $ heroku config:set BUNDLE_BUILD__RGEO="--with-geos-dir=/app --with-proj-dir=/app"
@@ -133,7 +132,7 @@ Setting config vars and restarting young-reef-5849... done, v9
 BUNDLE_BUILD__RGEO: --with-geos-dir=/app --with-proj-dir=/app
 ```
 
-So lets add the gems in the `Gemfile`, the Postgis adapter `railtie` in `config/application.rb`, commit and deploy it:
+Once this is done, we can add the gems in the `Gemfile`, the Postgis adapter `railtie` in `config/application.rb`, commit and deploy it:
 
 ```console
 $ cat Gemfile
@@ -160,12 +159,13 @@ $ git push heroku master
 
 ### Connect to a Postgis enabled database
 
-We now just need to set the `DATABASE_URL` config of our app to connect to a Postgis enabled database from SpacialDB. The [Rgeo postgis gem](http://dazuma.github.io/activerecord-postgis-adapter/rdoc/Documentation_rdoc.html) requires the `adapter: postgis` so our `DATABASE_URL` looks like:
+We now just need to set the `DATABASE_URL` config of our app to connect to a Postgis enabled database from SpacialDB. The [Rgeo postgis gem](http://dazuma.github.io/activerecord-postgis-adapter/rdoc/Documentation_rdoc.html) requires the `adapter: postgis` so our `DATABASE_URL` will look like:
 
 ```console
 $ heroku config:set DATABASE_URL="postgis://<username>:<password>@spacialdb.com:9999/<database>"
 ...
 ```
+
 ### Create the Photo resource
 
 First, lets generate a Photo resource for the API with a Postgis `Point` geometry column to store the latitude and longitude of the photo’s coordinates:
@@ -174,6 +174,7 @@ First, lets generate a Photo resource for the API with a Postgis `Point` geometr
 $ rails generate resource Photo
 ...
 ```
+
 And the migration:
 
 ```ruby
@@ -191,4 +192,5 @@ end
 
 ## Further reading:
 
+  * [Heroku Dev Center](https://devcenter.heroku.com/)
   * [SpacialDB devcenter](http://devcenter.spacialdb.com)
