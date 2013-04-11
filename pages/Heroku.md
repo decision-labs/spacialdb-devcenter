@@ -48,9 +48,14 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 $ cd geo-photo
 ```
 
-While we are at it, lets check it in and login to heroku:
+To begin with we need to add a Heroku specific configuration in `config/application.rb` and then we can check it in and login to Heroku to deploy it:
 
 ```console
+$ cat config/application.rb
+...
+    # Heroku requires this to be false
+    config.assets.initialize_on_precompile = false
+...
 $ git init
 ...
 $  git add .
@@ -128,13 +133,20 @@ Setting config vars and restarting young-reef-5849... done, v9
 BUNDLE_BUILD__RGEO: --with-geos-dir=/app --with-proj-dir=/app
 ```
 
-So lets add the gems in the `Gemfile`, commit and deploy it:
+So lets add the gems in the `Gemfile`, the Postgis adapter `railtie` in `config/application.rb`, commit and deploy it:
 
 ```console
 $ cat Gemfile
 ...
 gem 'rgeo'
 gem 'activerecord-postgis-adapter'
+...
+$ cat config/application.rb
+...
+require 'rails/all'
+require 'active_record/connection_adapters/postgis_adapter/railtie'
+...
+$ bundle install
 ...
 $ git add ...
 $ git commit ...
@@ -148,11 +160,33 @@ $ git push heroku master
 
 ### Connect to a Postgis enabled database
 
-We now just need to set the `DATABASE_URL` config of our app to connect to a Postgis enabled database from SpacialDB. The Rgeo postgis gem requires the `adapter: postgis` so our `DATABASE_URL` looks like:
+We now just need to set the `DATABASE_URL` config of our app to connect to a Postgis enabled database from SpacialDB. The [Rgeo postgis gem](http://dazuma.github.io/activerecord-postgis-adapter/rdoc/Documentation_rdoc.html) requires the `adapter: postgis` so our `DATABASE_URL` looks like:
 
 ```console
 $ heroku config:set DATABASE_URL="postgis://<username>:<password>@spacialdb.com:9999/<database>"
 ...
+```
+### Create the Photo resource
+
+First, lets generate a Photo resource for the API with a Postgis `Point` geometry column to store the latitude and longitude of the photo’s coordinates:
+
+```console
+$ rails generate resource Photo
+...
+```
+And the migration:
+
+```ruby
+class CreatePhotos < ActiveRecord::Migration
+  def change
+    create_table :photos do |t|
+      t.point :lnglat, srid: 4326
+      t.index :lnglat, spatial: true
+
+      t.timestamps
+    end
+  end
+end
 ```
 
 ## Further reading:
