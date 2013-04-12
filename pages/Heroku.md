@@ -78,8 +78,9 @@ $ git push heroku master
 ...
 -----> Ruby/Rails app detected
 ...
+```
 
-To app should now be up and running and you can go to it by typing:
+The app should now be up and running and you can go to it by typing:
 
 ```console
 $ heroku open
