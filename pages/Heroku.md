@@ -176,20 +176,112 @@ $ rails generate resource Photo
 ...
 ```
 
-And the migration:
+We add the migration of a `lnglat` geographic point column and create a spatial index on it:
 
 ```ruby
 class CreatePhotos < ActiveRecord::Migration
   def change
     create_table :photos do |t|
-      t.point :lnglat, srid: 4326
-      t.index :lnglat, spatial: true
+      t.point :lnglat, :geographic => true
 
       t.timestamps
     end
+
+    add_index :photos, :lnglat, spatial: true
   end
 end
 ```
+
+
+For the `Photos` model we now have to specify the RGeo factory as well as the `:nearby` scope which uses the Postgis `ST_DWithin()` to find photos around a given point and radius. Finally we also add the `gem 'rgeo-geojson'` to the `Gemfile` and set the [GeoJson](http://www.geojson.org/) generator for the Postgis columns:
+
+```ruby
+class Photo < ActiveRecord::Base
+  attr_accessible :lnglat
+
+  GEOG_FACTORY ||= RGeo::Geographic.spherical_factory(:srid => 4326)
+  set_rgeo_factory_for_column(:lnglat, GEOG_FACTORY)
+
+  RGeo::ActiveRecord::GeometryMixin.set_json_generator(:geojson)
+
+  validates :lnglat, :presence => true
+
+  scope :nearby, lambda { |radius_in_km, lng, lat|
+    point = GEOG_FACTORY.point(lng, lat)
+    where("ST_DWithin(lnglat, ST_GeomFromText('#{point}'), #{radius_in_km.to_f*1000} )")
+  }
+end
+```
+
+The controller needs to specify the fact that we only respond to Json requests and implement the CRUD methods for the Photos resource:
+
+```ruby
+class PhotosController < ApplicationController
+  respond_to :json
+
+  def index
+    lat, lng = params[:lat], params[:lng]
+    radius = params[:radius] || 5
+
+    if lat and lng
+      @photos = Photo.nearby(radius, lng.to_f, lat.to_f)
+      respond_with({:photos => @photos})
+    else
+      respond_with({:message => "Invalid or missing lng/lat parameters"}, :status => 406)
+    end
+  end
+
+  def show
+    @photo = Photo.find(params[:id])
+    respond_with(@photo)
+  end
+
+  def create
+    @photo = Photo.new
+    @photo.lnglat = "POINT(#{params[:lng]} #{params[:lat]}"
+    @photo.save
+
+    respond_with(@photo)
+  end
+end
+```
+
+Finally in `seeds.rb` we create some data:
+
+```ruby
+locations = {
+  :sf   => [37.75, 122.68],
+  :atx  => [30.30, 97.70],
+  :pit  => [40.50, 80.22],
+  ...
+}
+
+locations.values.each do |coordinate|
+  photo = Photo.new
+  photo.lnglat = "POINT(#{coordinate[1]} #{coordinate[0]})"
+  photo.save
+end
+```
+
+After we save, commit and push these changes to Heroku, we can then run the following to migrate and seed the data:
+
+```console
+$ heroku run bundle exec rake db:migrate db:seed
+==  CreatePhotos: migrating ==
+...
+==  CreatePhotos: migrated (2.7966s) ==
+```
+
+We can test to see if the API works by sending it a request via `curl`:
+
+```console
+$ curl "http://young-reef-5849.herokuapp.com/photos.json?lng=110&lat=32&radius=1000"
+{"photos":[
+  {"created_at":"2013-04-14T16:30:38Z","id":6,"lnglat":{"type":"Point","coordinates":[106.6,35.05]},"updated_at":"2013-04-14T16:30:38Z"},
+  {"created_at":"2013-04-14T16:30:39Z","id":9,"lnglat":{"type":"Point","coordinates":[118.4,33.93]},"updated_at":"2013-04-14T16:30:39Z"}
+]}
+```
+
 
 ## Further reading:
 
