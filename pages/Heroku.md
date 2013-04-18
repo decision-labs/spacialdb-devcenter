@@ -282,6 +282,26 @@ $ curl "http://young-reef-5849.herokuapp.com/photos.json?lng=110&lat=32&radius=1
 ]}
 ```
 
+### Paperclip gem and S3 storage
+
+To continue a pre-requisite is an Amazon AWS account, which we will use for storing images via their S3 service, and Imagemagick installed on your system. In Rails we will use the `paperclip` gem to add file attachment capabilities to our Photos resource. We essentially follow the [original tutorial](https://devcenter.heroku.com/articles/ios-photo-sharing-geo-location-service) here, the only difference being that we now seed the data with an example image and we return the GeoJson representation of `lnglat` in our model:
+
+```ruby
+def as_json(options = nil)
+  {
+    :lnglat  => self.lnglat.as_json(options),
+
+    :image_urls => {
+      :original => self.image.url,
+      :thumbnail => self.image.url(:thumbnail)
+    },
+
+    :created_at => self.created_at.iso8601
+  }
+end
+```
+
+With that the backend API should be complete and perhaps we can also add a `delete` method to remove photos.
 
 ## Further reading:
 
